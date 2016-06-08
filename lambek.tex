@@ -1,0 +1,934 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sheaf representations and duality in logic
+% Steve Awodey and Henrik Forssell
+% June 2016
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb,latexsym}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{bbm}
+%\input{prooftree}
+\usepackage[all,cmtip]{xy}
+\input{diagxy}
+\CompileMatrices       
+\usepackage{url}
+%\usepackage{pdfpages}
+
+
+% categories
+\newcommand{\bbtwo}{\ensuremath{\mathbbm{2}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newcommand{\CC}{\ensuremath{\mathcal{C}}}
+\newcommand{\E}{\ensuremath{\mathcal{E}}}
+\newcommand{\BB}{\ensuremath{\mathcal{B}}}
+%\newcommand{\EE}{\ensuremath{\mathcal{E}}}
+\newcommand{\psh}[1]{\ensuremath{\mathsf{Set}^{#1^{\mathrm{op}}}}}
+\newcommand{\Set}{\ensuremath{\mathsf{Set}}}
+\newcommand{\Cat}{\ensuremath{\mathsf{Cat}}}
+\newcommand{\covpsh}[1]{\ensuremath{\mathsf{Set}^{#1}}}
+%\renewcommand{\to}{\ensuremath{\rightarrow}}
+\newcommand{\pocorner}[1][dr]{\save*!/#1+1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pbcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\y}{\ensuremath{\mathsf{y}}} % Yoneda embedding
+\newcommand{\Hom}{\ensuremath{\mathrm{Hom}}}
+\renewcommand{\hom}{\ensuremath{\mathrm{Hom}}}
+
+% arrows
+\newcommand{\hook}{\ensuremath{\hookrightarrow}}
+\newcommand{\mono}{\ensuremath{\rightarrowtail}}
+%\newcommand{\epi}{\ensuremath{\twoheadrightarrow}}
+
+
+% cubical sets
+\newcommand{\I}{\ensuremath{\mathrm{I}}}
+\renewcommand{\H}{\ensuremath{\mathbb{H}}}
+\newcommand{\HH}{\ensuremath{\mathcal{H}}}
+
+% type theory
+\newcommand{\G}{\ensuremath{\Gamma}}
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\type}{\mathsf{type}}       
+\newcommand{\types}[2]{#1 \vdash #2:\type}
+\newcommand{\Gtypes}[1]{\types{\Gamma}{#1}}
+\newcommand{\term}[2]{#1\,:\,#2}
+\newcommand{\terms}[2]{#1 \vdash #2}
+\newcommand{\Gterms}[1]{\terms{\Gamma}{#1}}
+\newcommand{\ext}[2]{{#1\!\centerdot\! #2}}
+\newcommand{\ty}{\ensuremath{\,:\,}}
+\newcommand{\pair}[1]{\ensuremath{\langle #1\rangle}}
+\newcommand{\exdot}{\ensuremath{\!\centerdot\!}}
+\newcommand{\texdot}{\ensuremath{\centerdot}}
+
+% Id types
+\newcommand{\Id}{\mathsf{Id}}
+\newcommand{\id}[1]{\Id_{#1}}
+\newcommand{\refl}{\mathsf{refl}}
+\newcommand{\idrec}{\mathsf{idrec}}
+\newcommand{\jay}{\mathsf{j}}
+\renewcommand{\i}{\mathsf{i}}
+
+% Universe
+\newcommand{\U}{\ensuremath{\mathcal{U}}}
+\newcommand{\UU}{\ensuremath{\widetilde{\mathcal{U}}}}
+
+% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary} 
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remarks*}{Remarks}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\usepackage{bussproofs}
+\usepackage[all]{xy}
+\xyoption{2cell}
+\xyoption{curve}
+\UseTwocells
+\input{diagxy}
+\CompileMatrices      
+\usepackage{tikz}
+\usepackage{pdfpages}
+\newcommand{\myemph}[1]{\textbf{#1}}
+
+ 
+\newcommand{\toarrow}{\ensuremath{\rightarrow}} 
+
+%\newcommand{\T}{\ensuremath{\mathbb{T}}}
+%\newcommand{\E}{\ensuremath{\mathcal{E}}} 
+%\newcommand{\B}{\ensuremath{\mathcal{B}}} 
+%\newcommand{\A}{A_\bullet}
+%\newcommand{\Id}{\mathrm{Id}}
+%\newcommand{\myemph}[1]{\textbf{#1}}    % Produces boldface text
+%\newcommand{\imp}{\ensuremath{\Rightarrow}} 
+%\newcommand{\arr}{\ensuremath{\rightarrow}} 
+
+
+%%%
+%%%  TYPE THEORETIC COMMANDS
+%%%
+
+%\newcommand{\U}{\mathcal{U}}      
+\newcommand{\Sn}{\mathbb{S}}       
+\newcommand{\Z}{\mathbb{Z}}       
+\newcommand{\rec}{\mathsf{rec}}  
+%\newcommand{\Set}{\mathsf{Set}}    
+\newcommand{\lloop}{\mathsf{loop}}    
+\newcommand{\base}{\mathsf{base}}   
+\newcommand{\cov}{\mathsf{cov}}   
+\newcommand{\suc}{\mathsf{succ}}   
+\newcommand{\ua}{\mathsf{ua}}    
+%\newcommand{\type}{\texttt{type}}       
+%\newcommand{\id}[1]{\texttt{Id}_{#1}} 
+\newcommand{\judge}[3][]{#2\;\vdash_{#1}\;#3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+{Sheaf representations and duality in logic}
+}
+\author{Steve Awodey \and Henrik Forssell
+}
+\date{
+\today}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Outline}
+
+
+\begin{enumerate}
+\item Gelfand Duality
+
+\item Grothendieck duality for commutative rings
+
+\item Sheaf representation for toposes 1: Lambek and Moerdijk
+
+%\item Toposes 2: Lambek
+
+\item Sheaf representation for toposes 2: Awodey
+
+\item Stone duality for Boolean algebras
+
+\item Lawvere duality and others
+
+\item Sheaf representation for pretoposes
+
+\item Stone-type dualities for pretoposes
+
+\end{enumerate}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Gelfand duality}
+Let $X$ be a  space, and consider the ring of real-valued functions,
+\[
+ \mathcal{C}(X)\ =\ \mathsf{Top}(X, \mathbb{R}).
+ \]
+ This  is a (contravariant) functor from ``geometry'' to ``algebra'':
+ \[
+ \mathcal{C} : \mathsf{Top}^\mathsf{op} \to \mathsf{CRng}.
+ \]
+%
+It is full and faithful if we restrict to compact Hausdorf spaces and bounded continuous functions  $\mathcal{C}^*(X)$:
+  \[
+ \mathcal{C}^* : \mathsf{KHaus}^\mathsf{op} \hookrightarrow \mathsf{CRng}.
+ \]
+ \begin{theorem}[Gelfand duality]
+ $\mathsf{KHaus}$ is dual to the category of all commutative rings of the form  $\mathcal{C}^*(X)$ and ring homomorphisms between them.
+ \end{theorem}
+ \medskip
+ 
+ It then requires some work to  determine \emph{which} rings are of the form $\mathcal{C}^*(X)$!  
+ They are called \emph{$C^*$-algebras}.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Gelfand duality}
+When can we recover the space $X$ from its ring of functions $\mathcal{C}^*(X)$?
+
+\begin{itemize}
+\item The points  $x\in X$ determine maximal ideals in the ring $\mathcal{C}^*(X)$,
+\[
+M_x = \{ f : X\to \mathbb{R}\ |\ f(x) = 0\ \}
+\]
+\item The (Zariski) topology on the set $\mathsf{MaxIdl}(A)$ in any ring $A$ has a basis of open sets of the form:
+\[
+B_a\ =\ \{M \in X\ |\ a\notin M\ \}\, ,\qquad a\in A.
+\]
+\item If $A$ is a \emph{$C^*$-algebra}, then this specification will determine a compact Hausdorf space $X = \mathsf{MaxIdl}(A)$ such that $A\cong \mathcal{C}(X)$.
+\end{itemize}
+
+ \begin{theorem}[Gelfand-Stone-Naimark]
+ $\mathsf{KHaus}$ is dual to the category of $C^*$-algebras,
+ \[
+\mathsf{KHaus}^\mathsf{op}\ \simeq\ C^*\mathsf{Alg}.
+ \]
+ \end{theorem}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grothendieck's sheaf representation for commutative rings}
+
+Grothendieck extended this duality from $C^*$-algebras to \emph{all} commutative rings, by generalizing on the ``geometric'' side from spaces to \emph{(affine) schemes},
+ \[
+\mathsf{Scheme}_\mathsf{aff}^\mathsf{op}\ \simeq\ \mathsf{CRng}.
+ \]
+
+The essential change was to generalize the ``ring of values'' from the constant ring $\mathbb{R}$ to a ring $\mathcal{R}$ that ``varies continuously over the space $X$'', i.e.\ a \emph{sheaf of rings}.   
+\medskip
+
+The various rings $\mathcal{R}_x$ generalize the \emph{local rings} of real-valued functions that vanish at $x\in X$.
+\medskip
+
+This allows \emph{every} commutative ring $A$ to be seen as a ring of continuous functions on a suitable space $X_A$, with values in a suitable sheaf of rings $\mathcal{R}$ on $X_A$.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Grothendieck's sheaf representation for commutative rings}
+
+\begin{definition} A  ring (commutative, with unit $1\neq 0$) is called \emph{local} if it has a unique maximal ideal.
+Equivalently: $$x+y\ \text{is a unit}\quad\text{implies}\quad x\ \text{is a unit}\ \text{or}\ y\ \text{is a unit}.$$
+\end{definition}
+%
+\begin{theorem}[Grothendieck]
+Let $A$ be a ring.  There is a space $X$ with a sheaf of rings $\mathcal{R}$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\mathcal{R}_p$ is a local ring, 
+\item for the ring of global sections, we have: $\Gamma(\mathcal{R}) \cong A$.
+\end{enumerate}
+Thus \emph{every ring is isomorphic to the ring of global sections of a sheaf of local rings}.
+\end{theorem}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Grothendieck's sheaf representation for commutative rings}
+
+The \myemph{space} $X$ is the \emph{prime spectrum} $\mathsf{Spec}(A)$:
+ \begin{enumerate}
+\item points $p\in \mathsf{Spec}(A)$ are prime ideals $p\subseteq A$,
+\item the topology has basic opens of the following form, for all $f\in A$:
+ $$B_f = \{ p\in \mathsf{Spec}(A)\ |\ f\not\in p \}.$$
+\end{enumerate}
+The \myemph{structure sheaf} $\mathcal {R}$ is determined by ``localizing'' $A$ at $f$,
+\[
+\mathcal{R}(B_f) = [f]^{-1}A
+\]
+where $A \rightarrow [f]^{-1}A$ freely inverts all of the elements $f, f^2, f^3, \dots$.
+\medskip
+
+The \myemph{stalk} $\mathcal {R}_p$ is then the localization of $A$ at $p$,
+\[
+\mathcal{R}_p = S^{-1}A, 
+\]
+where $S = A\setminus p$.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Grothendieck's sheaf representation for commutative rings}
+
+The \myemph{affine scheme} $(\mathsf{Spec}(A), \mathcal {O})$ represents $A$ as a ``ring of continuous functions'' 
+\[
+f : \mathsf{Spec}(A) \to \mathcal {R}\,,
+\]
+\myemph{except} that the ring $\mathcal{R}$ is itself ``varying continuously over the space $\mathsf{Spec}(A)$'' (i.e.\ it is a sheaf).  
+\medskip
+
+The local ring $\mathcal{R}_p$ has a \myemph{unique maximal ideal}, consisting of ``those functions  $f : \mathsf{Spec}(A) \to \mathcal{R}$ that vanish at $p$''.
+\medskip
+
+It is a ``representation'' of $A$ because there is always an injective homomorphism
+\[
+A \cong \Gamma(\mathcal{R}) \rightarrowtail \prod_{p}\mathcal{R}_p \,.
+\]
+
+\begin{corollary}[Sub-direct-product representation]
+Every ring $A$ is isomorphic to a \myemph{sub}ring of a \myemph{direct product} of local rings.
+\end{corollary}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lambek-Moerdijk sheaf representation for toposes}
+
+\begin{definition} A  (small, elementary)  topos is called \emph{sublocal} if its subterminal lattice $\mathsf{Sub}(1)$ has a unique maximal ideal.
+Equivalently, for $x,y\in \mathsf{Sub}(1)$: 
+\[
+x\vee y = 1\quad\text{implies}\quad x=1\ \text{or}\ y=1\,.
+\]
+\end{definition}
+%
+\begin{theorem}[Lambek-Moerdijk 1982]
+Let $\E$ be a topos.  There is a space $X$ with a sheaf of toposes $\tilde\E$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\tilde\E_p$ is a sublocal topos, 
+\item for the topos of global sections, we have: $\Gamma(\tilde\E) \cong \E$.
+\end{enumerate}
+Thus \emph{every topos is isomorphic to the topos of global sections of a sheaf of sublocal toposes}.
+\end{theorem}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+The \myemph{space} $X$ is the so-called \emph{(sub)spectrum of the topos},  $\mathsf{Spec}(\E)$.\\  
+\medskip
+
+It is the prime spectrum of the distributive lattice $\mathsf{Sub}(1)$:
+ \begin{enumerate}
+\item the points $P\in \mathsf{Spec}(\E)$ are prime ideals $P\subseteq \mathsf{Sub}(1)$,
+\item the basic opens have the following form, for all $q\in\mathsf{Sub}(1)$:
+$$B_q = \{ P\in \mathsf{Spec}(\E)\ |\ q\not\in P \}.$$
+\end{enumerate}
+
+The lattice of all open sets of $\mathsf{Spec}(\E)$ is isomorphic to the ideal completion of $\mathsf{Sub}(1)$,
+$$O(\mathsf{Spec}(\E)) = \mathsf{Idl}(\mathsf{Sub}(1))\,.$$
+
+%Equivalently, we could have set:
+%\begin{enumerate}
+%\item points $F\in Spec(\E)$ are prime filters $F\subseteq \mathsf{Sub}(1)$,
+%\item the topology has basic opens of the following form, for $q\in\mathsf{Sub}(1)$:
+%$$D_q = \{ F\in Spec(\E)\ \ |\ q\in F \}.$$
+%\end{enumerate}
+%
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+
+The \myemph{structure sheaf} $\tilde{\E}$ is determined by ``slicing'' $\E$ at $q \in\mathsf{Sub}(1)$,
+\[
+\tilde{\E}(B_q) = \E/q\,.
+\]
+This takes the place of localization.  Note that it also ``inverts'' all those elements $p\in \mathsf{Sub}(1)$ with $q\leq p$. 
+\bigskip
+
+For the global sections $\Gamma$, we have:
+$$\Gamma(\tilde{\E}) \cong \tilde{\E}(B_\top) = \E/1 \cong \E\,.$$
+So the topos of global sections of $\tilde{\E}$ is indeed  isomorphic to $\E$.
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+The \myemph{stalk} $\tilde{\E}_P$ at a prime ideal $P\in \mathsf{Spec}(\E)$ is the filter-quotient topos,
+\[
+\tilde{\E}_P = \varinjlim_{q\not\in P} \E/q, 
+\]
+at the prime \myemph{filter} $\mathsf{Sub}(1)\!\setminus\! P$.  
+\medskip
+
+One then has:
+\[
+\mathsf{Sub}_{\tilde{\E}_P}(1)\cong P\,,
+\]
+so the stalk topos $\tilde{\E}_P$ is indeed sublocal.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+Again, there is always an injection from the global sections into the product of the stalks,
+\[
+\E \cong \Gamma(\tilde{\E}) \rightarrowtail \prod_{P\in X}\tilde{\E}_P\,.
+\]
+
+\begin{corollary}[Sub-direct-product representation for toposes]
+Every topos $\E$ is isomorphic to a \myemph{sub}topos of a \myemph{direct product} of sublocal toposes.
+\end{corollary}
+
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+We have the following \myemph{logical interpretation} of the sheaf representation:
+%
+\begin{itemize}
+\item A topos $\E$ is (the term model of) a theory in Intuitionistic Higher-Order Logic.
+\item A sublocal topos $\mathcal{S}$ is one that has the \emph{disjunction property}:
+\[
+\mathcal{S}\vdash p\vee q \qquad\text{iff}\qquad \mathcal{S}\vdash p\  \ \text{or}\  \ \mathcal{S}\vdash q\,,
+\]
+for all ``propositions'' $p, q$.
+\item  The subdirect-product embedding is a logical completeness theorem with respect to such ``semantic'' toposes $\mathcal{S}$.
+\item The sheaf representation is a Kripke-style completeness theorem for IHOL, with $\tilde\E$ as a ``sheaf of possible worlds''.
+\end{itemize}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lambek's modified sheaf representation for toposes}
+
+But this result is \myemph{not entirely satisfactory}, because we would like the ``semantic worlds'' $\mathcal{S}$ to also have the \emph{existence property}:
+\[
+\mathcal{S}\vdash (\exists x:A)\varphi(x) \qquad\text{iff}\qquad  \mathcal{S}\vdash \varphi(a)\ \text{for some closed $a:A$}\,,
+\] 
+(we know that we can prove completeness with respect to such).
+\medskip
+
+\begin{definition}
+A topos $\mathcal{S}$ is called \myemph{local} if the terminal object $1$ is indecomposable and projective, i.e.\ the global sections functor 
+\[
+\Gamma = \hom_\mathcal{S}(1, - ) : \mathcal{S} \to \Set
+\]
+preserves coproducts and epimorphisms.
+\end{definition}
+\medskip
+
+Note that a local topos has \myemph{both} the disjunction and existence properties.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek's modified sheaf representation for toposes}
+
+Lambek gave the following improvement over the sublocal sheaf representation:
+
+\begin{theorem}[Lambek 1989]
+Let $\E$ be a topos.  
+There is a faithful logical functor $\E\rightarrowtail\mathcal{F}$ 
+and a space $X$ with a sheaf of toposes 
+$\tilde{\mathcal{F}}$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\tilde{\mathcal{F}}_p$ is a \myemph{local} topos, 
+\item for the topos of global sections, we have: $\Gamma(\tilde{\mathcal{F}}) \cong \mathcal{F}$.
+\end{enumerate}
+Thus every topos is a \myemph{subtopos} of one that is isomorphic to the topos of global sections of a sheaf of \myemph{local} toposes.  
+\end{theorem}
+\medskip
+
+This suffices for a \emph{sub-direct-product representation} into \myemph{local} toposes, and therefore gives the desired \emph{logical completeness} with respect to \myemph{local} toposes.  
+
+But conceptually it is still not entirely satisfactory.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Local sheaf representation for toposes}
+
+In my thesis, I proved:
+
+\begin{theorem}[A. 1998]
+Let $\E$ be a topos.  
+There is a space $X$ with a sheaf of toposes $\tilde{\E}$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\tilde{\E}_p$ is a \myemph{local} topos, 
+\item for the topos of global sections, we have: $\Gamma(\tilde{\E}) \cong \E$.
+\end{enumerate}
+Thus every topos is isomorphic to the global sections of a sheaf of \myemph{local} toposes.  
+\end{theorem}
+\medskip
+
+As before, this gives a \emph{sub-direct-product representation},
+\[
+\E \rightarrowtail \prod_{p}\mathcal{S}_p
+\]
+into a product of local toposes $\mathcal{S}_p$, and therefore implies the desired \emph{logical completeness} of IHOL with respect to local toposes.  
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+The stronger result also gives better ``Kripke semantics'' for IHOL, since the ``sheaf of possible worlds'' now has \myemph{local} stalks.
+\medskip
+
+For \myemph{classical} higher-order logic, more can be said:
+
+\begin{lemma}
+Every local \myemph{boolean} topos is well-pointed, i.e.\ the global sections functor,
+\[
+\Gamma = \hom_\mathcal{S}(1, - ) : \mathcal{S} \to \Set
+\]
+is faithful.
+\end{lemma}
+
+A well-pointed topos is essentially a model of set theory.  
+
+\begin{corollary}
+Every boolean topos is isomorphic to the global sections of a sheaf of \myemph{well-pointed} toposes.  
+\end{corollary}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+For boolean toposes, we therefore have the  representation, 
+\[
+\mathcal{B} \rightarrowtail \prod_{p}\mathcal{S}_p 
+\]
+as sub-direct-product of \emph{well-pointed} toposes $\mathcal{S}_p$, along with its logical counterpart:
+%
+\begin{corollary}
+Classical HOL is complete with respect to models in well-pointed toposes.
+\end{corollary}
+\medskip
+
+These are \myemph{standard} models of classical HOL, taken in varying (``non-standard'') models of set theory.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+
+Taking the global sections $\Gamma:\mathcal{S}_p \rightarrowtail \Set$ of each such well-pointed model then embeds any boolean topos $\mathcal{B}$ into a power of $\Set$:
+\[
+\mathcal{B} \rightarrowtail \prod_{p}\mathcal{S}_p \rightarrowtail \prod_{p}\Set_p \cong \Set^X\,,
+\]
+The various composites $\mathcal{B} \rightarrow \mathcal{S}_p \rightarrowtail \Set$ are Henkin style, ``non-standard'' models of HOL in $\Set$.
+
+\begin{corollary}
+Classical HOL is complete with respect to Henkin models in $\Set$.
+\end{corollary}
+\medskip
+
+These Henkin models can be taken as the points of the space $X_\E$ for the sheaf representation.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+To define the \myemph{space $X_\E$ of models}:
+\medskip
+
+In the \myemph{sublocal} case, the points were \emph{prime ideals} $p\subseteq\mathsf{Sub}(1)$.
+These correspond exactly to \emph{lattice homomorphisms} $$p: \mathsf{Sub}_{\E}(1)\to \mathbf{2}\,.$$
+
+For the \myemph{local} case, we instead take \emph{coherent functors} $$P: \E\to\Set\,.$$
+These correspond exactly to Henkin models of (the theory represented by) $\E$.
+\medskip
+
+The \myemph{topology} is given (roughly speaking) by basic open sets of the following form, for all formulas $\varphi$:
+\[
+V_\varphi = \{ P\ |\ P\models \varphi \}
+\]
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+The \myemph{structure sheaf} $\tilde\E$ is  first defined as a \myemph{stack} on $\E$ by ``slicing'',
+\[
+\tilde\E(A)\ =\ \E/A\,.
+\] 
+The stack is first strictified to a \myemph{sheaf}, and then transferred from $\E$ to the space $X_\E$ of models using a topos-theoretic covering theorem due to Butz and Moerdijk.
+\medskip
+
+For the \myemph{global sections} $\Gamma$, we then have:
+$$\Gamma(\tilde{\E})\ \simeq\ \E/1\ \cong\ \E\,.$$
+
+And for the \myemph{stalks} $\tilde{\E}_P$ we have the colimit,
+\[
+\tilde{\E}_P\ =\ \varinjlim_{A\,\in\int\!{P}} \E/A, 
+\]
+where the (filtered!) category of elements $\int\!{P}$ of the Henkin model $P$ takes the place of the prime filter.  
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Toward logical duality}
+
+The results for toposes suggest an analogous treatment for \myemph{pretoposes} which would be somewhat better, 
+because the models involved would all be \myemph{standard} ones, rather than Henkin style, non-standard models.
+\medskip
+
+We then have the possibility of a \myemph{logical duality theory} analogous to Grothendieck's duality for schemes and commutative rings, with  
+the sheaf representation playing the role of a \myemph{logical structure sheaf}.
+\medskip
+
+This can be seen as a generalization of classical Stone duality for Boolean algebras (= Boolean rings):
+from a logical point of view, we have a \myemph{Stone duality for first-order logic}, 
+with the classical theory for Boolean algebras appearing as the propositional case.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Boolean algebras and Stone duality}
+
+
+Recall that for a boolean algebra $B$ we have the Stone space $\mathsf{Spec}(B)$,  defined exactly as for the subterminal lattice $\mathsf{Sub}_{\E}(1)$ of a topos $\E$ (i.e.\ the prime spectrum).  We can represent the \myemph{points} $p\in \mathsf{Spec}(B)$ as boolean homomorphisms,
+\[
+p : B\to \mathbf{2}\,.
+\]
+
+We can recover $B$ from the space $\mathsf{Spec}(B)$ as the \myemph{clopen subsets}, which are represented by continuous maps,
+\[
+f : \mathsf{Spec}(B)\to \mathbf{2}\,,
+\]
+where $\mathbf{2}$ is given the discrete topology. (This is just a \myemph{constant} sheaf representation!)
+
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Boolean algebras and Stone duality}
+
+There is a contravariant equivalence of categories,
+\[
+\xymatrix{ 
+\mathbf{Bool}  \ar@/{}^{1pc}/[rr]^{\mathsf{Spec}}     &&  \mathbf{Stone}^{\mathsf{op}}  \ar@/{}^{1pc}/[ll]^{\mathsf{Clop}}  \\
+} 
+\]
+The functors are given just by homming into $\mathbf{2}$.
+\medskip
+
+Logically, a Boolean algebra is (the Lindenbaum-Tarski algebra of) a \myemph{theory in propositional logic}, and a boolean homomorphism $B\to \mathbf{2}$ is a \myemph{model}, i.e.\ a truth-valuation.
+\medskip
+
+We shall generalize this situation by replacing Boolean algebras with (Boolean) pretoposes, representing \myemph{first-order} logical theories, and replacing $\mathbf{2}$-valued models with $\mathbf{Set}$-valued models.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lawvere duality}
+
+Consider first the simpler case of equational logic, rather than full first-order logic:
+\begin{itemize}
+
+\item In place of a Boolean algebra representing a ``propositional theory'', we have a category $\mathbb{C}_T$ with finite products, representing an algebraic theory $T$ (such as groups). 
+
+\item $\mathbb{C}_T$ may be taken to be the \emph{dual}  of the category $T\mathsf{Alg}_{fg}$ of all finitely generated free algebras and algebra homomorphisms between them.
+
+
+\item The general $T$-algebras then correspond to FP-functors $\mathbb{C}_T \to \Set$, where the category $\Set$ now plays the role of the ``ring of values'', in place of the Boolean algebra $\{ 0 \leq 1\}$ of ``truth values''. 
+\end{itemize}
+
+
+\begin{theorem}[Lawvere 1963]
+There is an equivalence of categories,
+\[
+T\mathsf{Alg}\ \simeq\ FP(T\mathsf{Alg}_{fg}^\mathsf{op}, \Set)\,.
+\]
+\end{theorem}
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lawvere duality and others}
+
+The following dualities are determined in essentially the same way:
+
+\begin{center}
+\begin{tabular}{c|c|c}
+Lawvere & equational logic & finite product categories \\
+& operations and equations & \\
+\hline
+Gabriel-Ulmer$^{\strut}$ & relational logic & finite limit categories \\
+& operations, $=$, relations &  \\
+\hline
+Makkai$^{\strut}$ & regular logic & regular categories \\
+& operations, $=$, relations, $\exists$ & \\
+\end{tabular}
+\end{center}
+
+
+- In each case the ``algebraic'' side consists of a structured category representing the logical theory, and the ``spatial'' side consists of structure-preserving functors into $\Set$, which are the models.
+\smallskip
+
+- Recovering the ``algebra'' from the ``space'' (the theory from the models) requires a Stone-like represetation/completeness theorem.
+\smallskip
+
+- But the situation with the further logical operations $\forall$, $\Rightarrow$, and $\neg$ is somewhat different, because they have a contravariant aspect that cannot be recovered from homomorphisms of models.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Stone duality for pretoposes (A.-Forssell)}
+
+The further generalization of Stone duality to Boolean pretoposes works like this:
+\medskip
+
+\begin{center}
+\begin{tabular}{c|c}
+Boolean algebra $B$ & Boolean pretopos $\mathcal{B}$ \\
+propositional theory & first-order theory \\
+\hline homomorphism & pretopos functor\\
+$B\to \mathbf{2}$ &  $\mathcal{B}\to \mathbf{Set}$ \\
+truth-valuation & elementary model \\
+\hline topological space & topological \myemph{groupoid} \\
+ $\mathsf{Spec}(B)$ & $\mathbf{Spec}(\mathcal{B})$ \\
+of all valuations & of all models and isos \\
+\hline continuous function & coherent functor \\
+$\mathsf{Spec}(B) \to \mathbf{2}$  & $\mathbf{Spec}(\mathcal{B}) \to \mathbf{Set}$\\
+clopen set & coherent sheaf 
+\end{tabular}
+\end{center}
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Stone duality for pretoposes (A.-Forssell)}
+
+
+\begin{theorem}[A.-Forssell 2008]
+There is a contravariant \myemph{adjunction},
+\[
+\xymatrix{ 
+\mathbf{BPreTop}  \ar@/{}^{1pc}/[rr]^{\mathsf{Spec}}     &&  \mathbf{StoneTopGpd}^{\mathsf{op}}  \ar@/{}^{1pc}/[ll]^{\mathsf{Coh}} \,,
+} 
+\]
+in which the functors are given by homming into $\mathbf{Set}$.
+\end{theorem}
+
+The spectrum $\mathbf{Spec}(\mathcal{B})$ of a Boolean pretopos $\mathcal{B}$ is the groupoid of models and isos, topologized by ``satisfaction of formulas''.
+\medskip
+
+Recovering $\mathcal{B}$ from $\mathbf{Spec}(\mathcal{B})$ amounts to recovering an elementary theory from its models.  This is done by taking the coherent, equivariant sheaves on $\mathbf{Spec}(\mathcal{B})$, using results from topos theory.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Stone duality for pretoposes (A.-Forssell)}
+
+Makkai has found a related \myemph{equivalence}:
+\[
+\xymatrix{ 
+\mathbf{BPreTop}  \ar@/{}^{1pc}/[rr]     & \simeq &  \mathbf{UltraGpd}^{\mathsf{op}}  \ar@/{}^{1pc}/[ll] \\
+} 
+\]
+We replace Makkai's \myemph{ultraproduct} structure on the groupoids of models by a Stone-Zariski type \myemph{logical topology}.
+\medskip
+
+For us, however, the ``semantic'' functor,
+\[
+\mathsf{Spec} : \mathbf{BPreTop} \longrightarrow \mathbf{StoneTopGpd}^{\mathsf{op}}
+\]
+ is \myemph{not full}: there are continuous functors between the groupoids of models that do not come from a ``translation of theories''.
+\medskip
+
+Compare the case of commutative rings $A, B$:  a continuous function $$f : \mathsf{Spec}(B) \to \mathsf{Spec}(A)$$ need not come from a ring homomorphism $h : A\to B$. 
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sheaf representation for pretoposes (A.-Breiner)}
+
+As for rings and affine schemes, we can equip the spectrum $\mathbf{Spec}(\mathcal{B})$ of the pretopos $\mathcal{B}$ with a ``structure sheaf'' $\tilde{\mathcal{B}}$,\\
+  defined as in the sheaf representation for toposes: 
+\begin{itemize}
+\item start with the presheaf of categories $\tilde{\mathcal{B}} : \mathcal{B}^{\mathrm{op}}\to\mathbf{Cat}$ with,
+\[
+\tilde{\mathcal{B}}(X) \cong \mathcal{B}/X\,,
+\]
+for all $X\in \B$. This is a \myemph{stack} because $\mathcal{B}$ is a pretopos.
+ 
+\item Strictify to get a sheaf of categories on $\mathcal{B}$. 
+
+\item Use the equivalence of toposes,
+\[
+\mathbf{Sh}(\B)\ \simeq\ \mathbf{Sh}_{\mathsf{eq}}(\mathbf{Spec}(\mathcal{B}))
+\]
+$\mathbf{Spec}(\mathcal{B})$ is determined so that this equivalence holds.
+
+\item Move $\tilde{\mathcal{B}}$ along this equivalence in order to get an equivariant sheaf on $\mathbf{Spec}(\mathcal{B})$.
+\end{itemize}
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Sheaf representation for pretoposes (A.-Breiner)}
+
+The transported $\tilde{\mathcal{B}}$  is an equivariant sheaf of local, boolean pretoposes on the topological groupoid $\mathbf{Spec}(\mathcal{B})$.
+
+\begin{itemize}
+\item Logically, $\tilde{\mathcal{B}}$ is a sheaf of ``local theories'' on the groupoid of models, equipped with the logical topology.  
+
+\item As before, $\tilde{\mathcal{B}}$ has global sections $\Gamma\tilde{\mathcal{B}} \simeq \mathcal{B}$.  So the original ``theory'' $\mathcal{B}$ is the ``theory of all models''.
+
+\item The stalk $\tilde{\mathcal{B}}_P$ at a model $P : \mathcal{B} \to \Set$ is a well-pointed pretopos: it is the ``elementary diagram'' of the model $P$.
+\medskip
+
+\item The global sections functors $\Gamma_P : \tilde{\mathcal{B}}_P \rightarrowtail \Set$ are faithful \myemph{pretopos} morphisms, i.e.\ ``complete models''.
+
+\end{itemize}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Sheaf representation for pretoposes (A.-Breiner)}
+
+In sum, we have the following:
+
+\begin{theorem}[A.-Breiner 2013]
+Let $\B$ be a boolean pretopos.  
+There is a topological groupoid $G$ with an equivariant sheaf of pretoposes $\tilde{\B}$ such that:
+\begin{enumerate}
+\item for every $x\in G$, the stalk $\tilde{\B}_x$ is a well-pointed pretopos, 
+\item for the pretopos of global sections, we have: $\Gamma(\tilde{\B}) \cong \B$.
+\end{enumerate}
+Thus every Boolean pretopos is isomorphic to the global sections of a sheaf of well-pointed pretoposes.  
+\end{theorem}
+\medskip
+
+There is an analogous result for the non-Boolean case, with local pretoposes in place of well-pointed ones in the stalks.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Sheaf representation for pretoposes (A.-Breiner)}
+
+The resulting sub-direct-product representation $\mathcal{B}\rightarrowtail \prod_{x}\tilde{\mathcal{B}}_x$ yields:\\[1ex]
+
+\begin{corollary}[G\"odel completeness theorem] 
+There is a pretopos embedding,
+\[
+\mathcal{B}\rightarrowtail \prod_{x\in G}\tilde{\mathcal{B}}_{x} \rightarrowtail \prod_{x\in G}\Set \simeq \Set^{|G|}\,,
+\]
+with $|G|$ the set of points of the topological groupoid $G = \mathbf{Spec}(\mathcal{B})$ of models.
+\end{corollary}
+\medskip
+
+%Other consequences of the sheaf representation include:
+%
+%\begin{itemize}
+%\item Conceptual completeness (Makkai-Reyes)
+%\item Beth definability (Makkai)
+%\end{itemize}
+%
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Logical schemes}
+
+For a Boolean pretopos $\B$, call the pair $$(\mathbf{Spec}(\mathcal{B}), \tilde{\mathcal{B}})$$ an affine \myemph{logical scheme}.  \\
+
+A morphism of logical schemes
+\[
+(h, \tilde{h}) : (\mathbf{Spec}(\mathcal{B}), \tilde{\mathcal{B}}) \to (\mathbf{Spec}(\mathcal{A}), \tilde{\mathcal{A}})
+\]
+consists of a continuous groupoid homomorphism 
+\[
+h : \mathbf{Spec}(\mathcal{B}) \to \mathbf{Spec}(\mathcal{A}),
+\]
+together with a pretopos functor 
+\[
+\tilde{h} : \tilde{\mathcal{A}} \to h_*\tilde{\mathcal{B}}
+\]
+over $\mathbf{Spec}(\mathcal{A})$.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Logical schemes}
+
+\begin{theorem}[A.-Breiner 2012]
+Every pretopos functor $\mathcal{A} \to \mathcal{B}$ induces a morphism of the associated affine logical schemes.  Moreover, the  functor
+\[
+\mathsf{Spec} : \mathbf{BPreTop}^{\mathsf{op}} \longrightarrow \mathbf{LScheme}_{aff}
+\]
+is \myemph{full}: every map of schemes comes from a map of pretoposes.
+\end{theorem}
+
+\begin{corollary}[First-order logical duality]
+There is an equivalence,
+\[
+\mathbf{BPreTop}^{\mathsf{op}} \ \simeq\ \mathbf{LScheme}_{aff}\,.
+\]
+\end{corollary}
+
+Thus the category of Boolean pretoposes is dual to the category of affine logical schemes.
+
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{References}
+
+\begin{itemize}
+\item Lambek, J.\ and I.~Moerdijk,\\
+ Two sheaf representations of elementary toposes, in 
+ A.S.\ Troelstra and D.\ van Dalen (Eds.), \emph{Brouwer Centenary Symposium}, North-Holland, Amsterdam, 1982.
+\item Lambek, J., On the sheaf of possible worlds,\\
+ in: Adamek, Mac Lane (Eds.), \emph{Categorical Topology}, World Scientific, Singapore, 1989.
+\item Awodey, S., Sheaf representation for topoi,\\
+ \emph{J.\ Pure Appl.\ Algebra}, 145, pp.~107--121, 2000.
+\item Lawvere, F.W., Functorial semantics of algebraic theories,  \emph{Proc.\ Nat.\ Acad.\ Sci.\ USA} 50, pp.~869--72, 1963.
+\item Makkai, M., Stone duality for first order logic,\\
+ \emph{Adv.\ Math.} 65(2), pp.~97--170,  1987.
+\item Awodey, S. and H.~Forssell, First-order logical duality,\\
+ \emph{Ann.\ Pure and Appl.\ Logic}, 164(3), pp.~319--348, 2013.
+\item Breiner, S., \emph{Scheme representation for first-order logic},\\
+ Ph.D. thesis, CMU, 2013.
+\end{itemize}
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%
+\end{document}
+%%
