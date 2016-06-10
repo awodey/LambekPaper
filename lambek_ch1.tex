@@ -1,0 +1,429 @@
+\documentclass[lambek.tex]{subfiles}
+
+
+\begin{document}
+
+
+
+\section{Gelfand duality}
+Let $X$ be a  space, and consider the ring of real-valued functions,
+\[
+ \mathcal{C}(X)\ =\ \mathsf{Top}(X, \mathbb{R}).
+ \]
+ This  is a (contravariant) functor from ``geometry'' to ``algebra'':
+ \[
+ \mathcal{C} : \mathsf{Top}^\mathsf{op} \to \mathsf{CRng}.
+ \]
+%
+It is full and faithful if we restrict to compact Hausdorf spaces and bounded continuous functions  $\mathcal{C}^*(X)$:
+  \[
+ \mathcal{C}^* : \mathsf{KHaus}^\mathsf{op} \hookrightarrow \mathsf{CRng}.
+ \]
+ \begin{theorem}[Gelfand duality]
+ $\mathsf{KHaus}$ is dual to the category of all commutative rings of the form  $\mathcal{C}^*(X)$ and ring homomorphisms between them.
+ \end{theorem}
+ \medskip
+ 
+ It then requires some work to  determine \emph{which} rings are of the form $\mathcal{C}^*(X)$!  
+ They are called \emph{$C^*$-algebras}.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Gelfand duality}
+When can we recover the space $X$ from its ring of functions $\mathcal{C}^*(X)$?
+
+\begin{itemize}
+\item The points  $x\in X$ determine maximal ideals in the ring $\mathcal{C}^*(X)$,
+\[
+M_x = \{ f : X\to \mathbb{R}\ |\ f(x) = 0\ \}
+\]
+\item The (Zariski) topology on the set $\mathsf{MaxIdl}(A)$ in any ring $A$ has a basis of open sets of the form:
+\[
+B_a\ =\ \{M \in X\ |\ a\notin M\ \}\, ,\qquad a\in A.
+\]
+\item If $A$ is a \emph{$C^*$-algebra}, then this specification will determine a compact Hausdorf space $X = \mathsf{MaxIdl}(A)$ such that $A\cong \mathcal{C}(X)$.
+\end{itemize}
+
+ \begin{theorem}[Gelfand-Stone-Naimark]
+ $\mathsf{KHaus}$ is dual to the category of $C^*$-algebras,
+ \[
+\mathsf{KHaus}^\mathsf{op}\ \simeq\ C^*\mathsf{Alg}.
+ \]
+ \end{theorem}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grothendieck's sheaf representation for commutative rings}
+
+Grothendieck extended this duality from $C^*$-algebras to \emph{all} commutative rings, by generalizing on the ``geometric'' side from spaces to \emph{(affine) schemes},
+ \[
+\mathsf{Scheme}_\mathsf{aff}^\mathsf{op}\ \simeq\ \mathsf{CRng}.
+ \]
+
+The essential change was to generalize the ``ring of values'' from the constant ring $\mathbb{R}$ to a ring $\mathcal{R}$ that ``varies continuously over the space $X$'', i.e.\ a \emph{sheaf of rings}.   
+\medskip
+
+The various rings $\mathcal{R}_x$ generalize the \emph{local rings} of real-valued functions that vanish at $x\in X$.
+\medskip
+
+This allows \emph{every} commutative ring $A$ to be seen as a ring of continuous functions on a suitable space $X_A$, with values in a suitable sheaf of rings $\mathcal{R}$ on $X_A$.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Grothendieck's sheaf representation for commutative rings}
+
+\begin{definition} A  ring (commutative, with unit $1\neq 0$) is called \emph{local} if it has a unique maximal ideal.
+Equivalently: $$x+y\ \text{is a unit}\quad\text{implies}\quad x\ \text{is a unit}\ \text{or}\ y\ \text{is a unit}.$$
+\end{definition}
+%
+\begin{theorem}[Grothendieck]
+Let $A$ be a ring.  There is a space $X$ with a sheaf of rings $\mathcal{R}$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\mathcal{R}_p$ is a local ring, 
+\item for the ring of global sections, we have: $\Gamma(\mathcal{R}) \cong A$.
+\end{enumerate}
+Thus \emph{every ring is isomorphic to the ring of global sections of a sheaf of local rings}.
+\end{theorem}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Grothendieck's sheaf representation for commutative rings}
+
+The \myemph{space} $X$ is the \emph{prime spectrum} $\mathsf{Spec}(A)$:
+ \begin{enumerate}
+\item points $p\in \mathsf{Spec}(A)$ are prime ideals $p\subseteq A$,
+\item the topology has basic opens of the following form, for all $f\in A$:
+ $$B_f = \{ p\in \mathsf{Spec}(A)\ |\ f\not\in p \}.$$
+\end{enumerate}
+The \myemph{structure sheaf} $\mathcal {R}$ is determined by ``localizing'' $A$ at $f$,
+\[
+\mathcal{R}(B_f) = [f]^{-1}A
+\]
+where $A \rightarrow [f]^{-1}A$ freely inverts all of the elements $f, f^2, f^3, \dots$.
+\medskip
+
+The \myemph{stalk} $\mathcal {R}_p$ is then the localization of $A$ at $p$,
+\[
+\mathcal{R}_p = S^{-1}A, 
+\]
+where $S = A\setminus p$.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Grothendieck's sheaf representation for commutative rings}
+
+The \myemph{affine scheme} $(\mathsf{Spec}(A), \mathcal {O})$ represents $A$ as a ``ring of continuous functions'' 
+\[
+f : \mathsf{Spec}(A) \to \mathcal {R}\,,
+\]
+\myemph{except} that the ring $\mathcal{R}$ is itself ``varying continuously over the space $\mathsf{Spec}(A)$'' (i.e.\ it is a sheaf).  
+\medskip
+
+The local ring $\mathcal{R}_p$ has a \myemph{unique maximal ideal}, consisting of ``those functions  $f : \mathsf{Spec}(A) \to \mathcal{R}$ that vanish at $p$''.
+\medskip
+
+It is a ``representation'' of $A$ because there is always an injective homomorphism
+\[
+A \cong \Gamma(\mathcal{R}) \rightarrowtail \prod_{p}\mathcal{R}_p \,.
+\]
+
+\begin{corollary}[Sub-direct-product representation]
+Every ring $A$ is isomorphic to a \myemph{sub}ring of a \myemph{direct product} of local rings.
+\end{corollary}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lambek-Moerdijk sheaf representation for toposes}
+
+\begin{definition} A  (small, elementary)  topos is called \emph{sublocal} if its subterminal lattice $\mathsf{Sub}(1)$ has a unique maximal ideal.
+Equivalently, for $x,y\in \mathsf{Sub}(1)$: 
+\[
+x\vee y = 1\quad\text{implies}\quad x=1\ \text{or}\ y=1\,.
+\]
+\end{definition}
+%
+\begin{theorem}[Lambek-Moerdijk 1982]
+Let $\E$ be a topos.  There is a space $X$ with a sheaf of toposes $\tilde\E$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\tilde\E_p$ is a sublocal topos, 
+\item for the topos of global sections, we have: $\Gamma(\tilde\E) \cong \E$.
+\end{enumerate}
+Thus \emph{every topos is isomorphic to the topos of global sections of a sheaf of sublocal toposes}.
+\end{theorem}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+The \myemph{space} $X$ is the so-called \emph{(sub)spectrum of the topos},  $\mathsf{Spec}(\E)$.\\  
+\medskip
+
+It is the prime spectrum of the distributive lattice $\mathsf{Sub}(1)$:
+ \begin{enumerate}
+\item the points $P\in \mathsf{Spec}(\E)$ are prime ideals $P\subseteq \mathsf{Sub}(1)$,
+\item the basic opens have the following form, for all $q\in\mathsf{Sub}(1)$:
+$$B_q = \{ P\in \mathsf{Spec}(\E)\ |\ q\not\in P \}.$$
+\end{enumerate}
+
+The lattice of all open sets of $\mathsf{Spec}(\E)$ is isomorphic to the ideal completion of $\mathsf{Sub}(1)$,
+$$O(\mathsf{Spec}(\E)) = \mathsf{Idl}(\mathsf{Sub}(1))\,.$$
+
+%Equivalently, we could have set:
+%\begin{enumerate}
+%\item points $F\in Spec(\E)$ are prime filters $F\subseteq \mathsf{Sub}(1)$,
+%\item the topology has basic opens of the following form, for $q\in\mathsf{Sub}(1)$:
+%$$D_q = \{ F\in Spec(\E)\ \ |\ q\in F \}.$$
+%\end{enumerate}
+%
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+
+The \myemph{structure sheaf} $\tilde{\E}$ is determined by ``slicing'' $\E$ at $q \in\mathsf{Sub}(1)$,
+\[
+\tilde{\E}(B_q) = \E/q\,.
+\]
+This takes the place of localization.  Note that it also ``inverts'' all those elements $p\in \mathsf{Sub}(1)$ with $q\leq p$. 
+\bigskip
+
+For the global sections $\Gamma$, we have:
+$$\Gamma(\tilde{\E}) \cong \tilde{\E}(B_\top) = \E/1 \cong \E\,.$$
+So the topos of global sections of $\tilde{\E}$ is indeed  isomorphic to $\E$.
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+The \myemph{stalk} $\tilde{\E}_P$ at a prime ideal $P\in \mathsf{Spec}(\E)$ is the filter-quotient topos,
+\[
+\tilde{\E}_P = \varinjlim_{q\not\in P} \E/q, 
+\]
+at the prime \myemph{filter} $\mathsf{Sub}(1)\!\setminus\! P$.  
+\medskip
+
+One then has:
+\[
+\mathsf{Sub}_{\tilde{\E}_P}(1)\cong P\,,
+\]
+so the stalk topos $\tilde{\E}_P$ is indeed sublocal.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+Again, there is always an injection from the global sections into the product of the stalks,
+\[
+\E \cong \Gamma(\tilde{\E}) \rightarrowtail \prod_{P\in X}\tilde{\E}_P\,.
+\]
+
+\begin{corollary}[Sub-direct-product representation for toposes]
+Every topos $\E$ is isomorphic to a \myemph{sub}topos of a \myemph{direct product} of sublocal toposes.
+\end{corollary}
+
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek-Moerdijk sheaf representation for toposes}
+
+We have the following \myemph{logical interpretation} of the sheaf representation:
+%
+\begin{itemize}
+\item A topos $\E$ is (the term model of) a theory in Intuitionistic Higher-Order Logic.
+\item A sublocal topos $\mathcal{S}$ is one that has the \emph{disjunction property}:
+\[
+\mathcal{S}\vdash p\vee q \qquad\text{iff}\qquad \mathcal{S}\vdash p\  \ \text{or}\  \ \mathcal{S}\vdash q\,,
+\]
+for all ``propositions'' $p, q$.
+\item  The subdirect-product embedding is a logical completeness theorem with respect to such ``semantic'' toposes $\mathcal{S}$.
+\item The sheaf representation is a Kripke-style completeness theorem for IHOL, with $\tilde\E$ as a ``sheaf of possible worlds''.
+\end{itemize}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lambek's modified sheaf representation for toposes}
+
+But this result is \myemph{not entirely satisfactory}, because we would like the ``semantic worlds'' $\mathcal{S}$ to also have the \emph{existence property}:
+\[
+\mathcal{S}\vdash (\exists x:A)\varphi(x) \qquad\text{iff}\qquad  \mathcal{S}\vdash \varphi(a)\ \text{for some closed $a:A$}\,,
+\] 
+(we know that we can prove completeness with respect to such).
+\medskip
+
+\begin{definition}
+A topos $\mathcal{S}$ is called \myemph{local} if the terminal object $1$ is indecomposable and projective, i.e.\ the global sections functor 
+\[
+\Gamma = \hom_\mathcal{S}(1, - ) : \mathcal{S} \to \Set
+\]
+preserves coproducts and epimorphisms.
+\end{definition}
+\medskip
+
+Note that a local topos has \myemph{both} the disjunction and existence properties.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Lambek's modified sheaf representation for toposes}
+
+Lambek gave the following improvement over the sublocal sheaf representation:
+
+\begin{theorem}[Lambek 1989]
+Let $\E$ be a topos.  
+There is a faithful logical functor $\E\rightarrowtail\mathcal{F}$ 
+and a space $X$ with a sheaf of toposes 
+$\tilde{\mathcal{F}}$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\tilde{\mathcal{F}}_p$ is a \myemph{local} topos, 
+\item for the topos of global sections, we have: $\Gamma(\tilde{\mathcal{F}}) \cong \mathcal{F}$.
+\end{enumerate}
+Thus every topos is a \myemph{subtopos} of one that is isomorphic to the topos of global sections of a sheaf of \myemph{local} toposes.  
+\end{theorem}
+\medskip
+
+This suffices for a \emph{sub-direct-product representation} into \myemph{local} toposes, and therefore gives the desired \emph{logical completeness} with respect to \myemph{local} toposes.  
+
+But conceptually it is still not entirely satisfactory.
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Local sheaf representation for toposes}
+
+In my thesis, I proved:
+
+\begin{theorem}[A. 1998]
+Let $\E$ be a topos.  
+There is a space $X$ with a sheaf of toposes $\tilde{\E}$ such that:
+\begin{enumerate}
+\item for every $p\in X$, the stalk $\tilde{\E}_p$ is a \myemph{local} topos, 
+\item for the topos of global sections, we have: $\Gamma(\tilde{\E}) \cong \E$.
+\end{enumerate}
+Thus every topos is isomorphic to the global sections of a sheaf of \myemph{local} toposes.  
+\end{theorem}
+\medskip
+
+As before, this gives a \emph{sub-direct-product representation},
+\[
+\E \rightarrowtail \prod_{p}\mathcal{S}_p
+\]
+into a product of local toposes $\mathcal{S}_p$, and therefore implies the desired \emph{logical completeness} of IHOL with respect to local toposes.  
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+The stronger result also gives better ``Kripke semantics'' for IHOL, since the ``sheaf of possible worlds'' now has \myemph{local} stalks.
+\medskip
+
+For \myemph{classical} higher-order logic, more can be said:
+
+\begin{lemma}
+Every local \myemph{boolean} topos is well-pointed, i.e.\ the global sections functor,
+\[
+\Gamma = \hom_\mathcal{S}(1, - ) : \mathcal{S} \to \Set
+\]
+is faithful.
+\end{lemma}
+
+A well-pointed topos is essentially a model of set theory.  
+
+\begin{corollary}
+Every boolean topos is isomorphic to the global sections of a sheaf of \myemph{well-pointed} toposes.  
+\end{corollary}
+
+%%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+For boolean toposes, we therefore have the  representation, 
+\[
+\mathcal{B} \rightarrowtail \prod_{p}\mathcal{S}_p 
+\]
+as sub-direct-product of \emph{well-pointed} toposes $\mathcal{S}_p$, along with its logical counterpart:
+%
+\begin{corollary}
+Classical HOL is complete with respect to models in well-pointed toposes.
+\end{corollary}
+\medskip
+
+These are \myemph{standard} models of classical HOL, taken in varying (``non-standard'') models of set theory.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+
+Taking the global sections $\Gamma:\mathcal{S}_p \rightarrowtail \Set$ of each such well-pointed model then embeds any boolean topos $\mathcal{B}$ into a power of $\Set$:
+\[
+\mathcal{B} \rightarrowtail \prod_{p}\mathcal{S}_p \rightarrowtail \prod_{p}\Set_p \cong \Set^X\,,
+\]
+The various composites $\mathcal{B} \rightarrow \mathcal{S}_p \rightarrowtail \Set$ are Henkin style, ``non-standard'' models of HOL in $\Set$.
+
+\begin{corollary}
+Classical HOL is complete with respect to Henkin models in $\Set$.
+\end{corollary}
+\medskip
+
+These Henkin models can be taken as the points of the space $X_\E$ for the sheaf representation.
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+To define the \myemph{space $X_\E$ of models}:
+\medskip
+
+In the \myemph{sublocal} case, the points were \emph{prime ideals} $p\subseteq\mathsf{Sub}(1)$.
+These correspond exactly to \emph{lattice homomorphisms} $$p: \mathsf{Sub}_{\E}(1)\to \mathbf{2}\,.$$
+
+For the \myemph{local} case, we instead take \emph{coherent functors} $$P: \E\to\Set\,.$$
+These correspond exactly to Henkin models of (the theory represented by) $\E$.
+\medskip
+
+The \myemph{topology} is given (roughly speaking) by basic open sets of the following form, for all formulas $\varphi$:
+\[
+V_\varphi = \{ P\ |\ P\models \varphi \}
+\]
+
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Local sheaf representation for toposes}
+
+The \myemph{structure sheaf} $\tilde\E$ is  first defined as a \myemph{stack} on $\E$ by ``slicing'',
+\[
+\tilde\E(A)\ =\ \E/A\,.
+\] 
+The stack is first strictified to a \myemph{sheaf}, and then transferred from $\E$ to the space $X_\E$ of models using a topos-theoretic covering theorem due to Butz and Moerdijk.
+\medskip
+
+For the \myemph{global sections} $\Gamma$, we then have:
+$$\Gamma(\tilde{\E})\ \simeq\ \E/1\ \cong\ \E\,.$$
+
+And for the \myemph{stalks} $\tilde{\E}_P$ we have the colimit,
+\[
+\tilde{\E}_P\ =\ \varinjlim_{A\,\in\int\!{P}} \E/A, 
+\]
+where the (filtered!) category of elements $\int\!{P}$ of the Henkin model $P$ takes the place of the prime filter.  
+
+
+
+
+
+
+\end{document}
