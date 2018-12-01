@@ -1,0 +1,130 @@
+
+
+\usepackage{amsmath}
+\usepackage{amssymb,latexsym}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{bbm}
+%\input{prooftree}
+\usepackage[all,cmtip]{xy}
+\input{diagxy}
+\CompileMatrices       
+\usepackage{url}
+%\usepackage{pdfpages}
+
+
+% categories
+\newcommand{\bbtwo}{\ensuremath{\mathbbm{2}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newcommand{\CC}{\ensuremath{\mathcal{C}}}
+\newcommand{\E}{\ensuremath{\mathcal{E}}}
+\newcommand{\BB}{\ensuremath{\mathcal{B}}}
+%\newcommand{\EE}{\ensuremath{\mathcal{E}}}
+\newcommand{\psh}[1]{\ensuremath{\mathsf{Set}^{#1^{\mathrm{op}}}}}
+\newcommand{\Set}{\ensuremath{\mathsf{Set}}}
+\newcommand{\Cat}{\ensuremath{\mathsf{Cat}}}
+\newcommand{\covpsh}[1]{\ensuremath{\mathsf{Set}^{#1}}}
+%\renewcommand{\to}{\ensuremath{\rightarrow}}
+\newcommand{\pocorner}[1][dr]{\save*!/#1+1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pbcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\y}{\ensuremath{\mathsf{y}}} % Yoneda embedding
+\newcommand{\Hom}{\ensuremath{\mathrm{Hom}}}
+\renewcommand{\hom}{\ensuremath{\mathrm{Hom}}}
+
+% arrows
+\newcommand{\hook}{\ensuremath{\hookrightarrow}}
+\newcommand{\mono}{\ensuremath{\rightarrowtail}}
+%\newcommand{\epi}{\ensuremath{\twoheadrightarrow}}
+
+
+% cubical sets
+\newcommand{\I}{\ensuremath{\mathrm{I}}}
+\renewcommand{\H}{\ensuremath{\mathbb{H}}}
+\newcommand{\HH}{\ensuremath{\mathcal{H}}}
+
+% type theory
+\newcommand{\G}{\ensuremath{\Gamma}}
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\type}{\mathsf{type}}       
+\newcommand{\types}[2]{#1 \vdash #2:\type}
+\newcommand{\Gtypes}[1]{\types{\Gamma}{#1}}
+\newcommand{\term}[2]{#1\,:\,#2}
+\newcommand{\terms}[2]{#1 \vdash #2}
+\newcommand{\Gterms}[1]{\terms{\Gamma}{#1}}
+\newcommand{\ext}[2]{{#1\!\centerdot\! #2}}
+\newcommand{\ty}{\ensuremath{\,:\,}}
+\newcommand{\pair}[1]{\ensuremath{\langle #1\rangle}}
+\newcommand{\exdot}{\ensuremath{\!\centerdot\!}}
+\newcommand{\texdot}{\ensuremath{\centerdot}}
+
+% Id types
+\newcommand{\Id}{\mathsf{Id}}
+\newcommand{\id}[1]{\Id_{#1}}
+\newcommand{\refl}{\mathsf{refl}}
+\newcommand{\idrec}{\mathsf{idrec}}
+\newcommand{\jay}{\mathsf{j}}
+\renewcommand{\i}{\mathsf{i}}
+
+% Universe
+\newcommand{\U}{\ensuremath{\mathcal{U}}}
+\newcommand{\UU}{\ensuremath{\widetilde{\mathcal{U}}}}
+
+% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary} 
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remarks*}{Remarks}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\usepackage{bussproofs}
+\usepackage[all]{xy}
+\xyoption{2cell}
+\xyoption{curve}
+\UseTwocells
+\input{diagxy}
+\CompileMatrices      
+\usepackage{tikz}
+\usepackage{pdfpages}
+\newcommand{\myemph}[1]{\textbf{#1}}
+
+ 
+\newcommand{\toarrow}{\ensuremath{\rightarrow}} 
+
+%\newcommand{\T}{\ensuremath{\mathbb{T}}}
+%\newcommand{\E}{\ensuremath{\mathcal{E}}} 
+%\newcommand{\B}{\ensuremath{\mathcal{B}}} 
+%\newcommand{\A}{A_\bullet}
+%\newcommand{\Id}{\mathrm{Id}}
+%\newcommand{\myemph}[1]{\textbf{#1}}    % Produces boldface text
+%\newcommand{\imp}{\ensuremath{\Rightarrow}} 
+%\newcommand{\arr}{\ensuremath{\rightarrow}} 
+
+
+%%%
+%%%  TYPE THEORETIC COMMANDS
+%%%
+
+%\newcommand{\U}{\mathcal{U}}      
+\newcommand{\Sn}{\mathbb{S}}       
+\newcommand{\Z}{\mathbb{Z}}       
+\newcommand{\rec}{\mathsf{rec}}  
+%\newcommand{\Set}{\mathsf{Set}}    
+\newcommand{\lloop}{\mathsf{loop}}    
+\newcommand{\base}{\mathsf{base}}   
+\newcommand{\cov}{\mathsf{cov}}   
+\newcommand{\suc}{\mathsf{succ}}   
+\newcommand{\ua}{\mathsf{ua}}    
+%\newcommand{\type}{\texttt{type}}       
+%\newcommand{\id}[1]{\texttt{Id}_{#1}} 
+\newcommand{\judge}[3][]{#2\;\vdash_{#1}\;#3}
