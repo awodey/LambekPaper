@@ -5,13 +5,11 @@
 
 \section*{Preface}
 
-In 1997, shortly after finishing my PhD thesis, I received a friendly letter from Professor Lambek, in which he congratulated me on a result which he said he had been trying to attain since his work with Moerdijk \cite{LM1982}.  [[ find the letter and quote from it ]]  He later cited the result in several papers on the philosophy of mathematics (including \cite{L1989,L2004}), in which he developed a congenial  position that attempted to reconcile the different conventional ones, on the basis of results concerning the free topos, the sheaf representations considered here, and related considerations from categorical logic.    
+Shortly after finishing my PhD thesis, I received a friendly letter from Professor Lambek, in which he expressed interest in a result of mine that extended his work with Moerdijk \cite{LM1982}. He later cited my result in some papers on the philosophy of mathematics (including \cite{L1989,L2004}), in which he developed a congenial  position that attempted to reconcile the different conventional ones, on the basis of results concerning the free topos, the sheaf representations considered here, and related considerations from categorical logic.    
 
-The particular result in question, discussed in section \ref{section:localtopos} below, is an extension of prior work by Lambek and Moerdijk and Lambek, and was subsequently extended further in joint work with my  PhD students, first Henrik Forssell, and then Spencer Breiner.  This line of thought is  connected to a longer and deeper one in modern mathematics, as I originally learned from the papers of Lambek.  That insight inspired  my  original contribution and also the later joint work with my students, and it continues to fascinate and inspire me.   The purpose of this survey is to present that line of thought, which owes more to Lambek than to anyone else.  
+The particular result in question, discussed in section \ref{section:localtopos} below, extends prior results by Lambek and Moerdijk \cite{LM} and Lambek \cite{L1989}, and was later extended further in joint work with my  PhD students, first Henrik Forssell, and then Spencer Breiner.  This line of thought is, however, connected to a deeper one in modern mathematics, as I originally learned from the papers of Lambek.  That insight inspired  my  original contribution and also the later joint work with my students, and it continues to fascinate and inspire me.   The purpose of this survey is to present that line of thought, which owes more to Lambek than to anyone else.  
 
-The main idea, in a nutshell, is that the ground-breaking duality theories developed in the mid-20th century can be applied to logic via its algebraization under categorical logic, and they thereby result in known and new completeness theorems.  This insight, which is undoubteldy correct,  can as it turns out be taken even further --- via what is now known as ``categorification'' --- to establish an even deeper relation between logic and geometry, a glimpse of which can also be had in topos theory, and elsewhere.
-
-
+The main idea, in a nutshell, is that the ground-breaking duality theories developed in the mid-20th century can also be applied to logic, via its algebraization under categorical logic, and they thereby result in known and new completeness theorems.  This insight, which is already quite remarkable, can as it turns out be taken even further --- via what is now known as ``categorification'' --- to establish an even deeper relation between logic and geometry, a glimpse of which can also be had in topos theory, and elsewhere.
 
 \section{Gelfand duality}
 
@@ -187,24 +185,23 @@ where the $\mathcal{R}_p$ are all local rings.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lambek-Moerdijk sheaf representation for toposes}
 
-\begin{definition} A  (small, elementary)  topos is called \emph{sublocal}\footnote{
-In the original work \cite{LM}, and elsewhere, the term \emph{local} was used for the concept here called \emph{sublocal}, and another term was then required for what we call \emph{local} in Definition \ref{def:localtopos} below.
+\begin{definition} Call a  (small, elementary)  topos $\E$  \emph{sublocal}\footnote{
+In the original work \cite{LM}, and elsewhere, the term \emph{local} was used for the concept here called \emph{sublocal}, and another term was then required for the stronger conditional that we call \emph{local} in Definition \ref{def:localtopos} below.
 } 
-if its subterminal lattice $\mathsf{Sub}(1)$ has a unique maximal ideal.
-Equivalently, for $x,y\in \mathsf{Sub}(1)$: 
+if its subterminal lattice $\mathsf{Sub}_\E(1)$ has a unique maximal ideal.
+Equivalently, for $x,y\in \mathsf{Sub}_\E(1)$: 
 \[
 x\vee y = 1\quad\text{implies}\quad x=1\ \text{or}\ y=1\,.
 \]
 \end{definition}
 %
 Note the formal analogy to the concept of local ring.
-
 In \cite{LM} the following analogue of the Grothendieck sheaf representatation for rings is given for toposes (henceforth, \emph{topos} unqualified will mean small, elementary topos):
 \begin{theorem}
 Let $\E$ be a topos.  There is a space $X$ with a sheaf of toposes $\tilde\E$ such that:
 \begin{enumerate}
 \item for every $p\in X$, the stalk $\tilde\E_p$ is a sublocal topos, 
-\item for the topos $\Gamma(\tilde\E)$ of global sections, we have an equivalence, $$\E\cong \Gamma(\tilde\E)\,.$$
+\item for the topos $\Gamma(\tilde\E)$ of global sections, we have an isomorphism, $$\E\cong \Gamma(\tilde\E)\,.$$
 \end{enumerate}
 Thus every topos is isomorphic to the topos of global sections of a sheaf of sublocal toposes.
 \end{theorem}
@@ -214,17 +211,17 @@ Thus every topos is isomorphic to the topos of global sections of a sheaf of sub
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Lambek-Moerdijk sheaf representation for toposes}
 
-The space $X$ is is what may be called the \emph{subspectrum of the topos},  $X=\mathsf{Spec}(\E)$;   
-it is the prime ideal spectrum of the distributive lattice $\mathsf{Sub}(1)$:
+The space $X$ mentioned in the theorem is what may be called the \emph{subspectrum of the topos},  $X=\mathsf{sSpec}(\E)$;   
+it is just the prime ideal spectrum of the distributive lattice $\mathsf{Sub}(1)$:
 \begin{itemize}
-\item the points $P\in \mathsf{Spec}(\E)$ are prime ideals $P\subseteq \mathsf{Sub}(1)$,
-\item the topology has basic opens of the following form:
+\item the points $P\in \mathsf{sSpec}(\E)$ are prime ideals $P\subseteq \mathsf{Sub}(1)$,
+\item the topology has basic opens of the form:
 $$B_q = \{ P\in \mathsf{Spec}(\E)\ |\ q\not\in P \}, \quad q\in\mathsf{Sub}(1)\,.$$
 \end{itemize}
 %
 Note the close analogy to the space $\mathsf{Spec}(A)$ for a commutative ring $A$.
 
-The lattice of all open sets of $\mathsf{Spec}(\E)$ is then (isomorphic to) the ideal completion of the lattice $\mathsf{Sub}(1)$,
+The lattice of all open sets of $\mathsf{sSpec}(\E)$ is then (isomorphic to) the ideal completion of the lattice $\mathsf{Sub}(1)$,
 $$\mathcal{O}(\mathsf{Spec}(\E)) = \mathsf{Idl}(\mathsf{Sub}(1))\,.$$
 
 %Equivalently, we could have set:
@@ -241,47 +238,57 @@ $$\mathcal{O}(\mathsf{Spec}(\E)) = \mathsf{Idl}(\mathsf{Sub}(1))\,.$$
 %\section{Lambek-Moerdijk sheaf representation for toposes}
 
 
-Next, let us define a \emph{structure sheaf} $\tilde{\E}$ by ``slicing'' $\E$ at $q \in\mathsf{Sub}(1)$,
+Next, let us define a \emph{structure sheaf} $\tilde{\E}$ on $\mathsf{sSpec}(\E)$ by ``slicing'' $\E$ at $q \in\mathsf{Sub}(1)$,
 \[
 \tilde{\E}(B_q) = \E/q\,.
 \]
-This takes the place of localization of a ring $A$ at a basic open $B_f$ by:
+This takes the place of the localization of a ring $A$ at a basic open $B_f$:
 \[
 \mathcal{R}_A(B_f) = [f]^{-1}A\,.
 \]
-Note that $\E/q$ also ``inverts'' all those elements $p\in \mathsf{Sub}(1)$ with $q\leq p$. 
+Note that $\E/q$ also ``inverts'' all those elements $p\in \mathsf{Sub}(1)$ with $q\leq p$, in the sense that the canonical map 
+$q^* : \E \to \E/q$ takes every $p \mono 1$ to $q\wedge p \mono q$, and so if $q\leq p$ then $q^*p = 1_q : q \mono q$.
 
-The fact that $\tilde{\E}$ is indeed a sheaf on $\mathsf{Spec}(\E)$ essentially comes down to the fact that, for any $p, q \in \mathsf{Sub}(1)$, there is a canonical equalizer of toposes (and logical morphisms),
+The fact that $\tilde{\E}$ is indeed a sheaf on $\mathsf{sSpec}(\E)$ comes down to showing that, for any $p, q \in \mathsf{Sub}(1)$, there is a canonical equalizer of toposes (and logical morphisms),
 \[
 \E/p\vee q\ \mono\ \E/p \times \E/q\ \rightrightarrows\ \E/p\wedge q \,.
 \]
-This in turn follows from the fact that in a cube diagram ... 
-
-The stalk $\tilde{\E}_P$ at a prime ideal $P\in \mathsf{Spec}(\E)$ is the filter-quotient of $\E$ over the prime filter $\mathsf{Sub}(1)\!\setminus\! P$, i.e.\ the (filtered) colimit
+This in turn says that in a diagram of the form: 
+% \[ 
+% \xymatrix{ C \ar[d]_{i} \ar[rr]^{c} && F \ar[d]^{f} \\ D \ar[d]_{j} \ar[rr]_(.6){1_D} \ar@{.>}[rru]^d && D \\ E \ar@{.>}[rru]_{e} \ar@{.>}[rruu]^(.3){k} &&.} 
+% \] 
+ \[ 
+ \xymatrix{ 
+& X \ar@{>->}[ld] \ar[dd] \ar@{>->}[rr] && Q \ar@{.>}[ld] \ar[dd] & \\
+ P \ar[dd] \ar@{.>}[rr] && Y \ar@{.>}[dd]\\ 
+ & p \wedge q \ar@{>->}[ld] \ar@{>->}[rr] && q \ar@{>->}[ld] & \\
+  p \ar@{>->}[rr] && p\vee q .} 
+ \] 
+ with a pushout-pullback of monos in the base and the two vertical squares involving $X$ given as pullbacks, one can complete the cube as indicating by first forming the pushout $Y$ on the top and then obtaining the front vertical map from $Y$, and the resulting new vertical faces will then also be pullbacks. This is a rather special ``descent condition'' for the presheaf $\E/-$.
+ 
+The stalk $\tilde{\E}_P$ of this sheaf at a point $P\in \mathsf{sSpec}(\E)$ is computed as the filter-quotient of $\E$ over the complement of the prime ideal $P\subseteq  \mathsf{Sub}_{\E}(1)$, i.e.\ the prime filter $P^c = \mathsf{Sub}(1)\!\setminus\! P$.  Thus for the stalk we have the (filtered) colimit (taken in $\mathsf{Cat}$, but again a topos):
 \[
 \tilde{\E}_P = \varinjlim_{q\not\in P} \E/q\,.
 \]
-
-
-One then has:
+For this stalk topos, one then has the subterminal lattice:
 \[
-\mathsf{Sub}_{\tilde{\E}_P}(1)\cong \mathsf{Sub}_{\E}(1)/P\,,
+\mathsf{Sub}_{\tilde{\E}_P}(1)\cong \mathsf{Sub}_{\E}(1)/P^c\,,
 \]
-where $\mathsf{Sub}_{\E}(1)/P$ is the quotient distributive lattice by the prime ideal $P$.  
-It follows that the stalk topos $\tilde{\E}_P$ is indeed sublocal.
+where $\mathsf{Sub}_{\E}(1)/P^c$ is the quotient Heyting algebra by the prime filter $P^c$.  Since for the prime filter $P^c$ we have $p \vee q \in P^c$ implies $p \in P^c$ or $q \in P^c$, it thus follows that the stalk topos $\tilde{\E}_P$ is indeed sublocal.
 
 
 Finally, for the global sections of $\tilde{\E}$ we  have simply:
 $$\Gamma(\tilde{\E}) \cong \tilde{\E}(B_\top) = \E/1 \cong \E\,.$$
-Thus the topos of global sections of $\tilde{\E}$ is indeed isomorphic to the topos $\E$.
+Thus the topos of global sections of $\tilde{\E}$ is indeed isomorphic to the original topos $\E$.  In this way, $\E$ is isomorphic to the global sections of a sheaf of sublocal toposes.
+\medskip
 
-Again, there is always an injection from the global sections into the product of the stalks,
+Again, there is always an injection from the global sections into the product of the stalks, which in this case gives a conservative logical morphism of the form
 \[
-\E \cong \Gamma(\tilde{\E}) \rightarrowtail \prod_{P\in \mathsf{Spec}(\E)}\!\tilde{\E}_P\,.
+\E \cong \Gamma(\tilde{\E}) \rightarrowtail \prod_{P\in \mathsf{sSpec}(\E)}\!\tilde{\E}_P\,.
 \]
 
-\begin{corollary}[Subdirect-product representation for toposes]
-Every topos $\E$ is isomorphic to a  subtopos of a  direct product of sublocal toposes.
+\begin{corollary}\label{cor:SDPtopos}
+Every topos has a conservative logical morphism into a product of sublocal toposes.
 \end{corollary}
 
 %%\end{frame}
@@ -290,46 +297,39 @@ Every topos $\E$ is isomorphic to a  subtopos of a  direct product of sublocal t
 \subsection{Lambek's modified sheaf representation for toposes}
 
 
-We have the following \emph{logical interpretation} of the sheaf representation theorem for toposes:
+We have the following \emph{logical interpretation} of the sheaf representation theorem for toposes and its corollary.
 %
 \begin{itemize}
-\item A topos $\E$ can be regarded as the syntactic category $\E_\mathbb{T}$ of a theory $\mathbb{T}$ in Intuitionistic Higher-Order Logic (IHOL).
+\item A topos $\E$ can be regarded as the syntactic category $\E_\mathbb{T}$ of a theory $\mathbb{T}$ in Intuitionistic Higher-Order Logic (IHOL).  Thus for any sentence $\phi$ in the language of the theory $\mathbb{T}$,
+\[ 
+\E_\mathbb{T}\models \phi \qquad\text{iff}\qquad \mathbb{T} \vdash \phi\,.
+\]
 
 \item A sublocal topos $\mathcal{S}$ is one that has the \emph{disjunction property}:
 \[
-\mathcal{S}\models p\vee q \qquad\text{iff}\qquad \mathcal{S}\models p\  \ \text{or}\  \ \mathcal{S}\models q\,,
+\mathcal{S}\models \phi\vee \psi \qquad\text{iff}\qquad \mathcal{S}\models \phi\  \ \text{or}\  \ \mathcal{S}\models \psi\,,
 \]
-for all ``propositions''  $p, q$ (i.e.\ closed formulas of the theory $\mathbb{T}$).
+for all sentences $\phi, \psi$.
 
-\item  The subdirect-product embedding is a logical completeness theorem with respect to interpretations $\E_\mathbb{T}\to\mathcal{S}$ into such ``semantic'' sublocal toposes $\mathcal{S}$.  It says that a proposition $p$ is provable $\mathbb{T}\vdash p$ in an arbitrary theory $\mathbb{T}$ iff it is true in every interpretation of the theory $\mathbb{T}$ in any local topos $\mathcal{S}$.
+\item  The ``subdirect-product theorem'' given by Corollary \ref{cor:SDPtopos} is a logical completeness theorem with respect to interpretations $\E_\mathbb{T}\rightarrow\mathcal{S}$ of $\mathbb{T}$ into sublocal toposes $\mathcal{S}$.  It says that, for any theory $\mathbb{T}$ in IHOL, a sentence $\phi$ is provable, $\mathbb{T}\vdash \phi$,  iff it is true in every interpretation of $\mathbb{T}$ in a sublocal topos $\mathcal{S}$.  Thus IHOL is complete with respect to models in sublocal toposes.
 
 \item The sheaf representation is a Kripke-style completeness theorem for IHOL, with $\tilde\E$ as a ``sheaf of possible worlds'' (see \cite{Lambeck:sheaf of possible worlds}).
 \end{itemize}
 
-However, under this interpretation, the sheaf representation theorem is not entirely satisfactory, because we would like the ``semantic worlds'' $\mathcal{S}$ to also have the \emph{existence property}:
+Under this interpretation, however, the present sheaf representation is not entirely satisfactory, because we would really like the ``semantic toposes'' $\mathcal{S}$ to be even more $\Set$-like, in addition to being sublocal, by also having the \emph{existence property}:
 \[
-\mathcal{S}\vdash (\exists x:A)\varphi(x) \qquad\text{iff}\qquad  \mathcal{S}\vdash \varphi(a)\ \text{for some closed $a:A$}\,,
+\mathcal{S}\models (\exists x:A)\varphi(x) \qquad\text{iff}\qquad  \mathcal{S}\models \varphi(a)\text{, for some closed $a:A$}\,.
 \] 
-since we know that we can prove completeness with respect to such toposes.
-\medskip
 
 \begin{definition}\label{def:localtopos}
-A topos $\mathcal{S}$ is called \myemph{local} if the terminal object $1$ is indecomposable and projective, i.e.\ the global sections functor 
+A topos $\mathcal{S}$ will be called \emph{local} if the terminal object $1$ is both indecomposable and projective, i.e.\ the global sections functor 
 \[
 \Gamma = \hom_\mathcal{S}(1, - ) : \mathcal{S} \to \Set
 \]
-preserves coproducts and epimorphisms.
+preserves coproducts and epimorphisms. Note that a local topos is exactly one that has both the disjunction and existence properties.
 \end{definition}
-\medskip
 
-Note that a local topos has \myemph{both} the disjunction and existence properties.
-
-%%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Lambek's modified sheaf representation for toposes}
-
-Lambek gave the following improvement over the sublocal sheaf representation:
+In the paper \cite{Lambeck1988}, Lambek gave the following improvement over the sublocal sheaf representation:
 
 \begin{theorem}[Lambek 1989]
 Let $\E$ be a topos.  
@@ -337,126 +337,88 @@ There is a faithful logical functor $\E\rightarrowtail\mathcal{F}$
 and a space $X$ with a sheaf of toposes 
 $\tilde{\mathcal{F}}$ such that:
 \begin{enumerate}
-\item for every $p\in X$, the stalk $\tilde{\mathcal{F}}_p$ is a \myemph{local} topos, 
-\item for the topos of global sections, we have: $\Gamma(\tilde{\mathcal{F}}) \cong \mathcal{F}$.
+\item for every $p\in X$, the stalk $\tilde{\mathcal{F}}_p$ is a  local topos, 
+\item for the topos of global sections, we have and isomorphism $\mathcal{F} \cong \Gamma(\tilde{\mathcal{F}}) $.
 \end{enumerate}
-Thus every topos is a \myemph{subtopos} of one that is isomorphic to the topos of global sections of a sheaf of \myemph{local} toposes.  
+Thus every topos is a  subtopos of one that is isomorphic to the global sections of a sheaf of  local toposes.  
 \end{theorem}
 \medskip
+%
+The proof was inspired by the Henkin completeness theorem for higher-order logic, and first performs a sort of ``Henkinization'' of $\E$ to get bigger topos $\mathcal{F}$ with witnesses for all existential quantifiers, in a suitable sense. This result then suffices for a subdirect-product embedding of any topos $\E$ into a product of \emph{local} toposes, and therefore gives the desired logical completeness of IHOL with respect to such toposes, which are much more $\Set$-like.
 
-This suffices for a \emph{sub-direct-product representation} into \myemph{local} toposes, and therefore gives the desired \emph{logical completeness} with respect to \myemph{local} toposes.  
-
-But conceptually it is still not entirely satisfactory.
-
-%%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Local sheaf representation for toposes}\label{section:localtopos}
 
-In my thesis, I proved:
-
-\begin{theorem}[A. 1998]
+The main result of my PhD thesis \cite{A1998} was this:
+\begin{theorem}\label{theorem:local}
 Let $\E$ be a topos.  
 There is a space $X$ with a sheaf of toposes $\tilde{\E}$ such that:
 \begin{enumerate}
-\item for every $p\in X$, the stalk $\tilde{\E}_p$ is a \myemph{local} topos, 
-\item for the topos of global sections, we have: $\Gamma(\tilde{\E}) \cong \E$.
+\item for every $p\in X$, the stalk $\tilde{\E}_p$ is a local topos, 
+\item for the topos of global sections,  there is an equivalence $\E\simeq \Gamma(\tilde{\E})$.
 \end{enumerate}
-Thus every topos is isomorphic to the global sections of a sheaf of \myemph{local} toposes.  
+Thus every topos is equivalent to the global sections of a sheaf of local toposes.  
 \end{theorem}
-\medskip
 
-As before, this gives a \emph{sub-direct-product representation},
+As before, this gives a \emph{subdirect-product representation},
 \[
-\E \rightarrowtail \prod_{p}\mathcal{S}_p
+\E \rightarrowtail \prod_{p\,\in X}\mathcal{S}_p
 \]
-into a product of local toposes $\mathcal{S}_p$, and therefore implies the desired \emph{logical completeness} of IHOL with respect to local toposes.  
-%%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Local sheaf representation for toposes}
-
-The stronger result also gives better ``Kripke semantics'' for IHOL, since the ``sheaf of possible worlds'' now has \myemph{local} stalks.
+into a product of local toposes $\mathcal{S}_p$, and therefore implies the desired logical completeness of IHOL with respect to local toposes.  
+This stronger result also gives better ``Kripke semantics'' for IHOL, since the ``sheaf of possible worlds'' now has local stalks.
 \medskip
 
-For \myemph{classical} higher-order logic, more can be said:
+For classical higher-order logic, something more can be said:
 
 \begin{lemma}
-Every local \myemph{boolean} topos is well-pointed, i.e.\ the global sections functor,
+Every boolean, local topos $\mathcal{S}$ is well-pointed, i.e.\ the global sections functor,
 \[
 \Gamma = \hom_\mathcal{S}(1, - ) : \mathcal{S} \to \Set
 \]
 is faithful.
 \end{lemma}
 
-A well-pointed topos is essentially a model of set theory.  
-
 \begin{corollary}
-Every boolean topos is isomorphic to the global sections of a sheaf of \myemph{well-pointed} toposes.  
+Every boolean topos is isomorphic to the global sections of a sheaf of well-pointed toposes.  
 \end{corollary}
 
-%%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Local sheaf representation for toposes}
-
-For boolean toposes, we therefore have the  representation, 
+For boolean toposes $\mathcal{B}$, we therefore have an embedding, 
 \[
-\mathcal{B} \rightarrowtail \prod_{p}\mathcal{S}_p 
+\mathcal{B} \rightarrowtail \prod_{p\,\in X}\mathcal{S}_p 
 \]
-as sub-direct-product of \emph{well-pointed} toposes $\mathcal{S}_p$, along with its logical counterpart:
+as subdirect-product of \emph{well-pointed} toposes $\mathcal{S}_p$.  The logical counterpart now says:
 %
 \begin{corollary}
 Classical HOL is complete with respect to models in well-pointed toposes.
 \end{corollary}
 \medskip
+A well-pointed topos is essentially a model of set theory.  Indeed, it is worth emphasizing that the models of HOL here are \emph{standard} models of classical HOL, taken in varying models $\mathcal{S}$ of set theory.
 
-These are \myemph{standard} models of classical HOL, taken in varying (``non-standard'') models of set theory.
-
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Local sheaf representation for toposes}
-
-
-Taking the global sections $\Gamma:\mathcal{S}_p \rightarrowtail \Set$ of each such well-pointed model then embeds any boolean topos $\mathcal{B}$ into a power of $\Set$:
+Finally, taking the global sections $\Gamma:\mathcal{S}_p \rightarrowtail \Set$ of each such well-pointed topos, we get a faithful functor from any boolean topos $\mathcal{B}$ into a power of $\Set$:
 \[
-\mathcal{B} \rightarrowtail \prod_{p}\mathcal{S}_p \rightarrowtail \prod_{p}\Set_p \cong \Set^X\,,
+\mathcal{B} \rightarrowtail \prod_{p\,\in X}\mathcal{S}_p \rightarrowtail \prod_{p\,\in X}\Set \cong \Set^X\,.
 \]
-The various composites $\mathcal{B} \rightarrow \mathcal{S}_p \rightarrowtail \Set$ are Henkin style, ``non-standard'' models of HOL in $\Set$.
+However, the various composites $\mathcal{B} \rightarrow \mathcal{S}_p \rightarrowtail \Set$ are now not logical functors, because they need not preserve exponentials; they do, however, preserve the first-order logical structure (they are also exact; cf.~\cite{Freyd} theorem x.x).  Thus they are what the logician calls a ``Henkin'' or ``non-standard'' model of HOL in $\Set$.  In this way, we recover the familiar ``Henkin completeness theorem for HOL'' \cite{Henkin}:
 
 \begin{corollary}
-Classical HOL is complete with respect to Henkin models in $\Set$.
+Classical HOL is complete with respect to Henkin models.
 \end{corollary}
-\medskip
 
-These Henkin models can be taken as the points of the space $X_\E$ for the sheaf representation.
+For the proof of the sheaf representation theorem \ref{theorem:local}, these ``Henkin models'' will be taken as the points of the space $X_\E$, which we call the \emph{space of models} (following \cite{ButzMoerdijk}).
+In the  sublocal case, the points were the \emph{prime ideals} $P\subseteq\mathsf{Sub}(1)$.
+These correspond exactly to the \emph{lattice homomorphisms} $$p: \mathsf{Sub}_{\E}(1)\to \mathbf{2}\,.$$
 
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Local sheaf representation for toposes}
-To define the \myemph{space $X_\E$ of models}:
-\medskip
+For the local case, we will instead take \emph{coherent functors} $$P: \E\to\Set\,.$$
+These correspond exactly to (Henkin) models of the ``theory'' $\E$.\footnote{
+The astute reader will note that there is an issue of size here: the collection of all such functors may be too big to form a \emph{set}.  The technical remedy is explained in the paper \cite{Awodey1998}.}
 
-In the \myemph{sublocal} case, the points were \emph{prime ideals} $p\subseteq\mathsf{Sub}(1)$.
-These correspond exactly to \emph{lattice homomorphisms} $$p: \mathsf{Sub}_{\E}(1)\to \mathbf{2}\,.$$
-
-For the \myemph{local} case, we instead take \emph{coherent functors} $$P: \E\to\Set\,.$$
-These correspond exactly to Henkin models of (the theory represented by) $\E$.
-\medskip
-
-The \myemph{topology} is given (roughly speaking) by basic open sets of the following form, for all formulas $\varphi$:
+The topology on $X_\E$ is given (roughly speaking) by basic open sets of the following form, for all formulas $\varphi$:
 \[
 V_\varphi = \{ P\ |\ P\models \varphi \}
 \]
 
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Local sheaf representation for toposes}
 
-The \myemph{structure sheaf} $\tilde\E$ is  first defined as a \myemph{stack} on $\E$ by ``slicing'',
+The \myemph{structure sheaf} $\tilde\E$ is first defined as a \myemph{stack} on $\E$ by ``slicing'',
 \[
 \tilde\E(A)\ =\ \E/A\,.
 \] 
