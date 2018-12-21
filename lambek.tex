@@ -156,6 +156,8 @@ Steve Awodey
 
 \maketitle
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Outline}
 %
@@ -190,18 +192,21 @@ Steve Awodey
 
 %\subfile{lambek_ch1.tex}
 
+\centerline{\emph{Professor Joachim Lambek in memoriam}}
+\bigskip 
+\bigskip
 
 %\section*{Preface}
 
-\noindent Shortly after finishing my PhD thesis, I received a friendly letter from Professor Lambek in which he expressed interest in a result of mine that extended his work with Moerdijk \cite{LM}. He later cited my result in some papers on the philosophy of mathematics (including \cite{L1,L2}), in which he developed a congenial  position that attempted to reconcile the different conventional ones on the basis of results concerning the free topos, the sheaf representations considered here, and related considerations from categorical logic.    
+\noindent Shortly after finishing my PhD thesis, I received a friendly letter from Professor Lambek in which he expressed interest in a result of mine that extended his work with Moerdijk \cite{LM}. He later cited my result in some papers on the philosophy of mathematics (including \cite{L1,L2}), in which he developed a congenial  position that attempted to reconcile the different conventional ones in foundations on the basis of results concerning the free topos, the sheaf representations considered here, and related considerations from categorical logic.    
 
 The particular result in question, discussed in section \ref{section:localtopos} below, extends prior results by Lambek and Moerdijk \cite{LM} and Lambek \cite{L2}, and was later extended further in joint work with my  PhD students, first Henrik Forssell \cite{AF}, and then Spencer Breiner \cite{B}.  This line of thought is, however, connected to a deeper one in modern mathematics, as I originally learned from the papers of Lambek.  That insight inspired  my  original contribution and also the later joint work with my students, and it continues to fascinate and inspire me.   The purpose of this survey is to sketch that line of thought, which owes more to Lambek than to anyone else.  
 
-The main idea, in a nutshell, is that the ground-breaking duality theories developed in the mid-20th century can also be applied to logic, via its algebraization under categorical logic, and they thereby result in known and new completeness theorems.  This insight, which is already quite remarkable, can as it turns out be taken even further --- via what is sometimes called ``categorification'' --- to establish an even deeper relation between logic and geometry, a glimpse of which can also be had in topos theory, and elsewhere.
+The main idea, in a nutshell, is that the ground-breaking duality theories developed in the mid-20th century can also be applied to logic, via its algebraization under categorical logic, and they thereby result in known and new completeness theorems.  This insight, which is already quite remarkable, can as it turns out be taken even further---via what is sometimes called ``categorification''---to establish an even deeper relation between logic and geometry, a glimpse of which can also be had in topos theory, and elsewhere.
 
 \section{Gelfand duality}
 
-Perhaps the ur-example of the sort of duality theory we have in mind is the relation between topological spaces and commutative rings given by Gelfand duality (see \cite{J} Ch.~4).  To give a brief (and ahistorical) sketch, let $X$ be a  space and consider the ring of real-valued functions on $X$, with pointwise algebraic operations,
+Perhaps the ur-example of the sort of duality theory that we have in mind is the relation between topological spaces and commutative rings given by Gelfand duality (see \cite{J} Ch.~4).  To give a brief (and ahistorical) sketch, let $X$ be a  space and consider the ring of real-valued functions on $X$, with pointwise algebraic operations,
 \[
  \mathcal{C}(X)\ =\ \mathsf{Top}(X, \mathbb{R}).
  \]
@@ -214,12 +219,12 @@ The functor $ \mathcal{C}$ can be shown  to be full and faithful if we restrict 
  \[
  \mathcal{C}^* : \mathsf{KHaus}^\mathsf{op} \hookrightarrow \mathsf{CRng}.
  \]
-It then requires some further work to determine exactly \emph{which} rings are of the form $\mathcal{C}^*(X)$ for some space $X$.   These are called \emph{$C^*$-algebras}, and they can be defined as commutative rings $A$ satisfying the following conditions (\cite{J}, \S4.4):
+It then requires some further work to determine exactly \emph{which} rings are of the form $\mathcal{C}^*(X)$ for some space $X$.   These are called \emph{$C^*$-algebras}, and they can be characterized as commutative rings $A$ satisfying the following conditions (\cite{J}, \S4.4):
 \begin{enumerate}
 \item the additive group of $A$ is divisible and torsion free,
 \item $A$ has a partial order compatible with the ring structure and such that $a^2 \geq 0$ for all $a\in A$,
 \item $A$ is Archemedian, i.e.\ for every  $a\in A$ there is an integer $n$ such that $n\cdot 1_A \geq a$,
-\item if $1_A\geq na$ for all positive integers $n$, then $a\leq 0$,
+\item if $1_A\geq n\cdot a$ for all positive integers $n$, then $a\leq 0$,
 \item $A$ is complete in the norm $$||a|| = \inf\{ q\in \mathbb{Q}^+\ |\ q\cdot 1_A \geq a\text{ and } q\cdot 1_A \geq -a\}\,.$$
 \end{enumerate}
 There are many equivalent specifications (most using complex numbers in place of reals).
@@ -256,8 +261,8 @@ A key step in the proof is the following:
     \end{proposition*}
 %   
 It follows that there is an injection of rings,
-$$A \mono \prod_{M\in \mathsf{Max}(A)}\!\!A/M\ \cong\ \mathbb{R}^{\mathsf{Max}(A)}\,,$$
-the image of which  can be shown to consist of the Zariski continuous functions, i.e.\  $\mathcal{C}^*(\mathsf{Max}(A))$.
+$$A \mono \prod_{M\in \mathsf{Max}(A)}\!\!A/M\ \cong\ \mathbb{R}^{\mathsf{Max}(A)}\,.$$
+The image of this map can be shown to consist of the Zariski continuous functions, i.e.\  $\mathcal{C}^*(\mathsf{Max}(A))$.
 
 
 % \begin{theorem*}[Gelfand-Stone-Naimark]
@@ -293,10 +298,10 @@ Equivalently:
 \end{definition*}
 %
 \begin{theorem*}[Grothendieck sheaf representation]
-Let $A$ be a ring.  There is a space $X$ with a sheaf of rings $\mathcal{R}$ such that:
+Let $A$ be a ring.  There is a space $X_A$ with a sheaf of rings $\mathcal{R}$ such that:
 \begin{enumerate}
-\item for every $p\in X$, the stalk $\mathcal{R}_p$ is a local ring, 
-\item there an isomorphism, $$A\cong \Gamma(\mathcal{R})\,,$$
+\item for every $p\in X_A$, the stalk $\mathcal{R}_p$ is a local ring, 
+\item there is an isomorphism, $$A\cong \Gamma(\mathcal{R})\,,$$
 where $\Gamma(\mathcal{R})$ is the ring of global sections.
 \end{enumerate}
 Thus every ring is isomorphic to the ring of global sections of a sheaf of local rings.
@@ -307,7 +312,7 @@ Thus every ring is isomorphic to the ring of global sections of a sheaf of local
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Grothendieck's sheaf representation for commutative rings}
 
-The \myemph{space} $X$ in the theorem is the \emph{prime spectrum} $\mathsf{Spec}(A)$ of $A$:
+The \myemph{space} $X_A$ in the theorem is the \emph{prime spectrum} $\mathsf{Spec}(A)$ of the ring~$A$:
  \begin{itemize}
 \item points $p\in \mathsf{Spec}(A)$ are prime ideals $p\subseteq A$,
 \item the (Zariski) topology has basic opens of the form:
@@ -320,16 +325,16 @@ Unlike that case, however, the functor
  \]
 is not full, and so we need to equip the spaces  $\mathsf{Spec}(A)$ with an additional structure.
 
-The \myemph{structure sheaf} $\mathcal {R}$ is determined by ``localizing'' $A$ at $f$,
+The \myemph{structure sheaf} $\mathcal {R}$ is determined at a basic open set $B_f$ by ``localizing'' $A$ at $f$,
 \[
 \mathcal{R}(B_f) = [f]^{-1}A
 \]
 where $A \rightarrow [f]^{-1}A$ freely inverts all of the elements $f, f^2, f^3, \dots$.
 \medskip
 
-The \myemph{stalk} $\mathcal {R}_p$ of this sheaf at a point $p\in\mathsf{Spec}(A)$ is then seen to be the localization of $A$ at $S = A\setminus p$,
+The \myemph{stalk} $\mathcal {R}_p$ of this sheaf at a point $p\in\mathsf{Spec}(A)$ is then seen to be the localization of $A$ at $S_p = A\setminus p$,
 \[
-\mathcal{R}_p = S^{-1}A\,.
+\mathcal{R}_p = S^{-1}_p{A}\,.
 \]
 
 %%\end{frame}
@@ -345,7 +350,7 @@ The \myemph{affine scheme} $(\mathsf{Spec}(A), \mathcal {R})$ presents $A$ as a 
 \]
 except that the ring $\mathcal{R}$ is itself ``varying continuously over the space $\mathsf{Spec}(A)$'' -- i.e.\ it is a sheaf -- and the function $\hat{f}$ is then a global section of the sheaf $\mathcal{R}$.  
 
-\item Each stalk $\mathcal{R}_p$ is a local ring, and thus has a  unique maximal ideal, consisting of ``those functions  $\hat{f} : \mathsf{Spec}(A) \to \mathcal{R}$ that vanish at $p$''.
+\item Each stalk $\mathcal{R}_p$ is a local ring, with a unique maximal ideal, corersponding to ``those functions  $\hat{f} : \mathsf{Spec}(A) \to \mathcal{R}$ that vanish at $p$''.
 
 \item $(\mathsf{Spec}(A), \mathcal {R})$ is a ``representation'' of $A$ in the sense that $f\mapsto\hat{f}$ is an isomorphism of rings
 \[
@@ -353,11 +358,11 @@ A \cong \Gamma(\mathcal{R})\,.
 \]
 \end{itemize}
 
-Since there is always an injective homomorphism from the global sections of a sheaf into the product of all the stalks,
+There is always an injective homomorphism from the global sections of a sheaf into the product of all the stalks,
 \[
-\Gamma(\mathcal{R}) \rightarrowtail \prod_{p}\mathcal{R}_p \,,
+\Gamma(\mathcal{R}) \rightarrowtail \prod_{p}\mathcal{R}_p \,.
 \]
-we have the following:
+Thus we have the following:
 
 \begin{corollary*}[``Subdirect-product representation'']
 Every ring $A$ is isomorphic to a {sub}ring of a ``direct product'' of local rings.
@@ -386,9 +391,9 @@ x\vee y = 1\quad\text{implies}\quad x=1\ \text{or}\ y=1\,.
 Note the formal analogy to the concept of local ring.
 In \cite{LM} the following analogue of the Grothendieck sheaf representatation for rings is given for toposes (henceforth, \emph{topos} unqualified will mean small, elementary topos):
 \begin{theorem*}[Lambek-Moerdijk sheaf representation]
-Let $\E$ be a topos.  There is a space $X$ with a sheaf of toposes $\widetilde\E$ such that:
+Let $\E$ be a topos.  There is a space $X_\E$ with a sheaf of toposes $\widetilde\E$ such that:
 \begin{enumerate}
-\item for every $p\in X$, the stalk $\widetilde\E_p$ is a sublocal topos, 
+\item for every $p\in X_\E$, the stalk $\widetilde\E_p$ is a sublocal topos, 
 \item for the topos $\Gamma(\widetilde\E)$ of global sections, there is an isomorphism, $$\E\cong \Gamma(\widetilde\E)\,.$$
 \end{enumerate}
 Thus every topos is isomorphic to the topos of global sections of a sheaf of sublocal toposes.
@@ -434,7 +439,7 @@ This takes the place of the localization of a ring $A$ at a basic open $B_f$:
 \[
 \mathcal{R}_A(B_f) = [f]^{-1}A\,.
 \]
-Note that $\E/q$ also ``inverts'' all those elements $p\in \mathsf{Sub}(1)$ with $q\leq p$, in the sense that the canonical map 
+Note that $\E/q$ ``inverts'' all those elements $p\in \mathsf{Sub}(1)$ with $q\leq p$, in the sense that the canonical map 
 $q^* : \E \to \E/q$ takes every $p \mono 1$ to $q\wedge p \mono q$, and so if $q\leq p$ then $q^*p = 1_q : q \mono q$.
 
 The fact that $\widetilde{\E}$ is indeed a sheaf on $\mathsf{sSpec}(\E)$ comes down to showing that, for any $p, q \in \mathsf{Sub}(1)$, there is a canonical equalizer of toposes (and logical morphisms),
@@ -442,17 +447,14 @@ The fact that $\widetilde{\E}$ is indeed a sheaf on $\mathsf{sSpec}(\E)$ comes d
 \E/p\vee q\ \mono\ \E/p \times \E/q\ \rightrightarrows\ \E/p\wedge q \,.
 \]
 This in turn says that in a diagram of the form: 
-% \[ 
-% \xymatrix{ C \ar[d]_{i} \ar[rr]^{c} && F \ar[d]^{f} \\ D \ar[d]_{j} \ar[rr]_(.6){1_D} \ar@{.>}[rru]^d && D \\ E \ar@{.>}[rru]_{e} \ar@{.>}[rruu]^(.3){k} &&.} 
-% \] 
  \[ 
  \xymatrix{ 
 & X \ar@{>->}[ld] \ar[dd] \ar@{>->}[rr] && Q \ar@{.>}[ld] \ar[dd] & \\
  P \ar[dd] \ar@{.>}[rr] && Y \ar@{.>}[dd]\\ 
  & p \wedge q \ar@{>->}[ld] \ar@{>->}[rr] && q \ar@{>->}[ld] & \\
-  p \ar@{>->}[rr] && p\vee q .} 
+  p \ar@{>->}[rr] && p\vee q} 
  \] 
- with a pushout-pullback of monos in the base and the two vertical squares involving $X$ given as pullbacks, one can complete the cube as indicating by first forming the pushout $Y$ on the top face, and then obtaining the front vertical map from $Y$, and the resulting new vertical faces will then also be pullbacks. This is a rather special ``descent condition'' for the presheaf $\E/-$.
+ with a pushout-pullback of monos in the base, and the two vertical squares involving $X$ given as pullbacks, one can complete the cube as indicating by first forming the pushout $Y$ on the top face, and then obtaining the front vertical map from $Y$, and the resulting new vertical faces will then also be pullbacks. This is a rather special ``descent condition'' for the presheaf $\E/-$.
  
 The stalk $\widetilde{\E}_P$ of this sheaf at a point $P\in \mathsf{sSpec}(\E)$ is computed as the filter-quotient of $\E$ over the complement of the prime ideal $P\subseteq  \mathsf{Sub}_{\E}(1)$, i.e.\ the prime filter $P^c = \mathsf{Sub}(1)\!\setminus\! P$.  Thus for the stalk we have the (filtered) colimit (taken in $\mathsf{Cat}$, but again a topos):
 \[
@@ -532,7 +534,7 @@ Thus every topos is a  subtopos of one that is isomorphic to the global sections
 \end{theorem*}
 \medskip
 %
-The proof was inspired by the Henkin completeness theorem for higher-order logic \cite{H}, and first performs a sort of ``Henkinization'' of $\E$ to get bigger topos $\mathcal{F}$ with witnesses for all existential quantifiers, in a suitable sense. This result then suffices for a subdirect-product embedding of any topos $\E$ into a product of \emph{local} toposes, and therefore gives the desired logical completeness of IHOL with respect to such toposes, which are much more $\Set$-like.
+The proof was inspired by the Henkin completeness theorem for higher-order logic \cite{H}, and first performs a sort of ``Henkinization'' of $\E$ to get a bigger topos $\E\mono \mathcal{F}$ with witnesses for all existential quantifiers, in a suitable sense. This result then suffices for a subdirect-product embedding of any topos $\E$ into a product of \emph{local} toposes, and therefore gives the desired logical completeness of IHOL with respect to such toposes, which are much more $\Set$-like.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Local sheaf representation for toposes}\label{section:localtopos}
@@ -611,10 +613,24 @@ V_{\phi(x)} = \{ (P,\alpha)\in X_\E\ |\ P\models \phi(\alpha) \}
 \]
 for all formulas $\phi(x)$. (This description is not entirely accurate, but it gives the idea for present purposes; see \cite{A,AF,B} for details.)
 
-The \emph{structure sheaf} $\widetilde\E$ on $X_\E$  is again defined by ``slicing'' $\E$, but now it is first defined as a \emph{stack} on $\E$ itself (with respect to the coherent topology),
+The \emph{structure sheaf} $\widetilde\E$ on $X_\E$  is again defined by ``slicing'' $\E$, 
 \[
-\widetilde\E(A)\ =\ \E/A\,\qquad \text{for $A\in\E$}.
+\widetilde\E(A)\ =\ \E/A\,\qquad \text{for $A\in\E$}\,,
 \] 
+but now it is first shown to be a \emph{stack} on $\E$ itself (with respect to the coherent topology). What this means is:
+\begin{enumerate}
+\item for any $A,B\in \E$,  the canonical map is an equivalence,
+\[
+\E/A+B\ \simeq\ \E/A \times \E/B\,,\qquad 
+\]
+
+\item for any epimorphism $e:B\epi A$, the canonical map is an equivalence,
+\[
+\E/A\ \simeq\ \mathrm{des}(\E/B, e)\,,
+\]
+where $\mathrm{des}(\E/B, e)$ is the category of objects of $\E/B$ equipped with \emph{descent data} with respect to $e:B\to A$.
+\end{enumerate}
+
 The stack is then strictified to a \emph{sheaf} of categories (see \cite{A}), and then finally transferred from $\E$ to the space $X_\E$ of models using a topos-theoretic covering theorem due to Butz and Moerdijk \cite{BM}.  Call the resulting sheaf of categories on $X_\E$ again $\widetilde\E$.
 
 The \emph{stalk} $\widetilde{\E}_{(P,\alpha)}$ of the (transferred) sheaf at a point $(P,\alpha)$ can be calculated as the colimit,
