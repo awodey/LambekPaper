@@ -1,0 +1,15 @@
+This file is used by 4TeX, do not delete/change it!
+currentfilename=
+formatname=HUGETEX.EXE -progname=latex "&latex"
+format=LaTeX
+viewer=windvi.exe
+viewertxt=Windvi (.dvi)
+printer=&4dos dvips.exe -P ljfzzz
+printertxt=HP Laserjet 4000 PostScript (1200 dpi)
+printerport=lpt1
+printerporttxt=LPT1
+printeroptions=
+spelllanguage=uk
+spelllanguagetext=English (British)
+BibTeXfile=
+AlwaysDevirtualize=0
