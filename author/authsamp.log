@@ -1,0 +1,476 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  24 JAN 2020 13:30
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**authsamp.tex
+(./authsamp.tex
+LaTeX2e <2018-12-01>
+(./svmult.cls
+Document Class: svmult 2018/01/11 v5.5 
+Springer Verlag global LaTeX document class for multi authored books
+Class Springer-SVMult Info: extra/valid Springer sub-package 
+(Springer-SVMult)           not found in option list - using "global" style.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\svparindent=\dimen103
+\bibindent=\dimen104
+\betweenumberspace=\dimen105
+\headlineindent=\dimen106
+\minitoc=\write3
+\c@minitocdepth=\count88
+\c@chapter=\count89
+\mottowidth=\dimen107
+\svitemindent=\dimen108
+\verbatimindent=\dimen109
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 971.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 972.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 973.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 974.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 975.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 976.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 977.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 978.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 979.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 980.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 981.
+\tocchpnum=\dimen110
+\tocsecnum=\dimen111
+\tocsectotal=\dimen112
+\tocsubsecnum=\dimen113
+\tocsubsectotal=\dimen114
+\tocsubsubsecnum=\dimen115
+\tocsubsubsectotal=\dimen116
+\tocparanum=\dimen117
+\tocparatotal=\dimen118
+\tocsubparanum=\dimen119
+\foot@parindent=\dimen120
+\spthmsep=\dimen121
+\c@theorem=\count90
+\c@case=\count91
+\c@conjecture=\count92
+\c@corollary=\count93
+\c@definition=\count94
+\c@example=\count95
+\c@exercise=\count96
+\c@lemma=\count97
+\c@note=\count98
+\c@problem=\count99
+\c@property=\count100
+\c@proposition=\count101
+\c@question=\count102
+\c@solution=\count103
+\c@remark=\count104
+\c@prob=\count105
+\instindent=\dimen122
+\figgap=\dimen123
+\bildb@x=\box27
+\figcapgap=\dimen124
+\tabcapgap=\dimen125
+\c@merk=\count106
+\c@@inst=\count107
+\c@@auth=\count108
+\c@auco=\count109
+\instindent=\dimen126
+\authrun=\box28
+\authorrunning=\toks14
+\tocauthor=\toks15
+\titrun=\box29
+\titlerunning=\toks16
+\toctitle=\toks17
+\c@contribution=\count110
+LaTeX Info: Redefining \abstract on input line 2329.
+ (./xcolor.sty
+Package: xcolor 2004/07/04 v2.00 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Package option `x11names' ignored on input line 128.
+Package xcolor Info: Driver file: pdftex.def on input line 136.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+Package xcolor Info: Color model `cmy' added on input line 972.
+Package xcolor Info: Color model `hsb' added on input line 980.
+Package xcolor Info: Color model `HTML' added on input line 1000.
+Package xcolor Info: Color model `HSB' added on input line 1006.
+Package xcolor Info: Color model `Gray' added on input line 1012.
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/ntheorem/ntheorem.sty
+Style `ntheorem', Version 1.33 <2011/08/15>
+Package: ntheorem 2011/08/15 1.33
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\theorem@style=\toks18
+\theorem@@style=\toks19
+\theorembodyfont=\toks20
+\theoremnumbering=\toks21
+\theorempreskipamount=\skip43
+\theorempostskipamount=\skip44
+\theoremframepreskipamount=\skip45
+\theoremframepostskipamount=\skip46
+\theoreminframepreskipamount=\skip47
+\theoreminframepostskipamount=\skip48
+\theorem@preskip=\toks22
+\theorem@postskip=\toks23
+\theorem@framepreskip=\toks24
+\theorem@framepostskip=\toks25
+\theorem@inframepreskip=\toks26
+\theorem@inframepostskip=\toks27
+\theoremindent=\dimen127
+\theorem@indent=\dimen128
+\theoremrightindent=\dimen129
+\theorem@rightindent=\dimen130
+\theoremheaderfont=\toks28
+\theoremseparator=\toks29
+\theoremprework=\toks30
+\theorempostwork=\toks31
+\theoremsymbol=\toks32
+\qedsymbol=\toks33
+\theoremkeyword=\toks34
+\qedsymbol=\toks35
+\thm@topsep=\skip49
+\thm@topsepadd=\skip50
+Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
+\c@endNonectr=\count111
+\c@currNonectr=\count112
+\mysavskip=\skip51
+Package ntheorem Info: Option `thref' loaded on input line 1175.
+\mysavskip=\skip52
+)
+\c@currproofctr=\count113
+\c@endproofctr=\count114
+\c@proof=\count115
+) (./framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip53
+\fb@frw=\dimen131
+\fb@frh=\dimen132
+\FrameRule=\dimen133
+\FrameSep=\dimen134
+) (./makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+) (./graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks36
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+)
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+\@indexfile=\write4
+\openout4 = `authsamp.idx'.
+
+
+Writing index file authsamp.idx
+(./authsamp.aux)
+\openout1 = `authsamp.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+
+(/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count116
+\scratchdimen=\dimen137
+\scratchbox=\box30
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count119
+\MPscratchDim=\dimen138
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
+\everyMPtoPDFconversion=\toks38
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 57.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 57.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 57.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 57.
+
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 57.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 57.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 57.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.25> not available
+(Font)              size <5> substituted on input line 57.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 57.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 57.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8.5> on input line 57.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.94997> on input line 57.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.25> on input line 57.
+[1
+
+
+
+{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 90.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 90.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 90.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 111.
+
+Package epstopdf Info: Source file: <figure.eps>
+(epstopdf)                    date: 2019-02-21 11:23:44
+(epstopdf)                    size: 62739 bytes
+(epstopdf)             Output file: <figure-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-01-24 13:26:12
+(epstopdf)                    size: 13928 bytes
+(epstopdf)             Command: <epstopdf --outfile=figure-eps-converted-to.pdf
+ figure.eps>
+(epstopdf)             \includegraphics on input line 127.
+Package epstopdf Info: Output file is already uptodate.
+<figure-eps-converted-to.pdf, id=13, 139.52126pt x 195.73125pt>
+File: figure-eps-converted-to.pdf Graphic file (type pdf)
+<use figure-eps-converted-to.pdf>
+Package pdftex.def Info: figure-eps-converted-to.pdf  used on input line 127.
+(pdftex.def)             Requested size: 90.68773pt x 127.22379pt.
+[2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 154.
+
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
+ [3 <./figure-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figure.eps>
+(epstopdf)                    date: 2019-02-21 11:23:44
+(epstopdf)                    size: 62739 bytes
+(epstopdf)             Output file: <figure-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-01-24 13:26:12
+(epstopdf)                    size: 13928 bytes
+(epstopdf)             Command: <epstopdf --outfile=figure-eps-converted-to.pdf
+ figure.eps>
+(epstopdf)             \includegraphics on input line 173.
+Package epstopdf Info: Output file is already uptodate.
+File: figure-eps-converted-to.pdf Graphic file (type pdf)
+<use figure-eps-converted-to.pdf>
+Package pdftex.def Info: figure-eps-converted-to.pdf  used on input line 173.
+(pdftex.def)             Requested size: 90.68773pt x 127.22379pt.
+
+Overfull \hbox (0.61853pt too wide) in paragraph at lines 194--206
+[][]
+ []
+
+[4] [5]
+Overfull \hbox (3.0pt too wide) detected at line 292
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 299
+ [] 
+ []
+
+[6]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 307.
+
+Overfull \hbox (3.0pt too wide) detected at line 307
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 314
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 321
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 328
+ [] 
+ []
+
+[7]
+Overfull \hbox (3.0pt too wide) detected at line 341
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 348
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 354
+ [] 
+ []
+
+
+Overfull \hbox (3.0pt too wide) detected at line 365
+ [] 
+ []
+
+[8] (./referenc.tex)
+\tf@thm=\write5
+\openout5 = `authsamp.thm'.
+
+ [9] (./authsamp.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.28pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2847 strings out of 492616
+ 36784 string characters out of 6129482
+ 116739 words of memory out of 5000000
+ 6728 multiletter control sequences out of 15000+600000
+ 10452 words of font info for 37 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,12n,40p,707b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
+b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
+live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on authsamp.pdf (9 pages, 248415 bytes).
+PDF statistics:
+ 117 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

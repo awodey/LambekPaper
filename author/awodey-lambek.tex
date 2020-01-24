@@ -2,27 +2,32 @@
 % Sheaf representations and duality in logic
 % Steve Awodey
 % April 2019
+% -- updated January 2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\documentclass[12pt]{article}
-\documentclass[graybox]{svmult}
 
+\documentclass[graybox]{svmult}
 \usepackage{makeidx}         % allows index generation
 \usepackage{graphicx} 
 \makeindex   
 %
+%
+% My Packages
+%
 \usepackage{amsmath}
 \usepackage{amssymb,latexsym}
-%\usepackage{amsthm}
-%\usepackage{bm}
-%\usepackage{bbm}
-%\input{prooftree}
-%\usepackage[all,cmtip]{xy}
-%\input{diagxy}
-%\CompileMatrices       
-%\usepackage{url}
-%\usepackage{pdfpages}
+\usepackage{bussproofs}
+\usepackage[all]{xy}
+\xyoption{2cell}
+\xyoption{curve}
+\UseTwocells
+\input{diagxy}
+\CompileMatrices      
+\usepackage{tikz}
+\usepackage{pdfpages}
 
-
+%% My Macros
+%
 % categories
 \newcommand{\bbtwo}{\ensuremath{\mathbbm{2}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
@@ -100,18 +105,7 @@
 %\newtheorem{definition}[theorem]{Definition}
 %\newtheorem*{definition*}{Definition}
 
-
-\usepackage{bussproofs}
-\usepackage[all]{xy}
-\xyoption{2cell}
-\xyoption{curve}
-\UseTwocells
-\input{diagxy}
-\CompileMatrices      
-\usepackage{tikz}
-\usepackage{pdfpages}
 \newcommand{\myemph}[1]{\emph{#1}}
-
  
 \newcommand{\toarrow}{\ensuremath{\rightarrow}} 
 
@@ -217,7 +211,7 @@ The main idea, in a nutshell, is that the ground-breaking duality theories devel
 
 Perhaps the ur-example of the sort of duality theory that we have in mind is the relation between topological spaces and commutative rings given by Gelfand duality (see \cite{J} Ch.~4).  To give a brief (and ahistorical) sketch, let $X$ be a  space and consider the ring of real-valued continuous functions on $X$, with pointwise algebraic operations,
 \[
- \mathcal{C}(X)\ =\ \mathsf{Top}(X, \mathbb{R}).
+ \CC(X)\ =\ \mathsf{Top}(X, \mathbb{R}).
  \]
  This construction is a (contravariant) functor from ``geometry'' to ``algebra'',
  \[
@@ -359,7 +353,7 @@ The \myemph{affine scheme} $(\mathsf{Spec}(A), \mathcal {R})$ presents $A$ as a 
 \]
 except that the ring $\mathcal{R}$ is itself ``varying continuously over the space $\mathsf{Spec}(A)$'' -- i.e.\ it is a sheaf -- and the function $\hat{f}$ is then a global section of the sheaf $\mathcal{R}$.  
 
-\item Each stalk $\mathcal{R}_p$ is a local ring, with a unique maximal ideal, corersponding to ``those functions  $\hat{f} : \mathsf{Spec}(A) \to \mathcal{R}$ that vanish at $p$''.
+\item Each stalk $\mathcal{R}_p$ is a local ring, with a unique maximal ideal, corresponding to ``those functions  $\hat{f} : \mathsf{Spec}(A) \to \mathcal{R}$ that vanish at $p$''.
 
 \item $(\mathsf{Spec}(A), \mathcal {R})$ is a ``representation'' of $A$ in the sense that $f\mapsto\hat{f}$ is an isomorphism of rings
 \[
@@ -458,10 +452,10 @@ The fact that $\widetilde{\EE}$ is indeed a sheaf on $\mathsf{sSpec}(\EE)$ comes
 This in turn says that in a diagram of the form: 
  \[ 
  \xymatrix{ 
-& X \ar@{>->}[ld] \ar[dd] \ar@{>->}[rr] && Q \ar@{.>}[ld] \ar[dd] & \\
+& \ \ X\ \ar@{>->}[ld] \ar[dd] \ar@{>->}[rr] && Q \ar@{.>}[ld] \ar[dd] & \\
  P \ar[dd] \ar@{.>}[rr] && Y \ar@{.>}[dd]\\ 
- & p \wedge q \ar@{>->}[ld] \ar@{>->}[rr] && q \ar@{>->}[ld] & \\
-  p \ar@{>->}[rr] && p\vee q} 
+ & p \wedge q\ \ar@{>->}[ld] \ar@{>->}[rr] && \ q \ar@{>->}[ld] & \\
+  p\ \ar@{>->}[rr] && p\vee q} 
  \] 
  with a pushout-pullback of monos in the base, and the two vertical squares involving $X$ given as pullbacks, one can complete the cube as indicating by first forming the pushout $Y$ on the top face, and then obtaining the front vertical map from $Y$, and the resulting new vertical faces will then also be pullbacks. This is a rather special ``descent condition'' for the presheaf $\EE/-$.
  
@@ -504,13 +498,19 @@ Now consider  the following  logical interpretation of the sheaf representation 
 \EE_\mathbb{T}\models \phi \qquad\text{iff}\qquad \mathbb{T} \vdash \phi\,.
 \]
 
+\item A logical functor $\EE_\mathbb{T}\rightarrow\mathcal{F}$ between toposes induces an interpretation of the language of $\mathbb{T}$ into $\mathcal{F}$; one which, moreover, satisfies all the sentences that hold in $\EE_\mathbb{T}$, and thus a $\mathbb{T}$-model.  Such a functor is called \emph{conservative} if it reflects isomorphisms; for logical functors, this is the same as being faithful.  A conservative logical functor $f : \EE_\mathbb{T}\rightarrowtail\mathcal{F}$ therefore reflects satisfaction, in the sense that for any sentence $\phi$ in the language of $\mathbb{T}$,
+\[ 
+\mathcal{F} \models \phi^f \qquad\text{implies}\qquad \EE_\mathbb{T}\models \phi\,.
+\]
+where $\phi^f $ is the interpretation of $\phi$ under the model induced by $f$.
+
 \item A sublocal topos $\mathcal{S}$ is one that is \emph{consistent} $\mathcal{S}\nvDash\bot$ and has the \emph{disjunction property}  
 \[
 \mathcal{S}\models \phi\vee \psi \qquad\text{iff}\qquad \mathcal{S}\models \phi\  \ \text{or}\  \ \mathcal{S}\models \psi\,,
 \]
 for all sentences $\phi, \psi$.  Such sublocal toposes are more $\Set$-like than a general one, and can thus be regarded as suitable semantics for logical theories. 
 
-\item  The ``subdirect-product representation'' given by Corollary \ref{cor:SDPtopos} is a logical completeness theorem with respect to interpretations $\EE_\mathbb{T}\rightarrow\mathcal{S}$ of $\mathbb{T}$ into sublocal toposes~$\mathcal{S}$.  It says that, for any theory $\mathbb{T}$ in IHOL, a sentence $\phi$ is provable, $\mathbb{T}\vdash \phi$,  iff it is true in every interpretation of $\mathbb{T}$ in a sublocal topos~$\mathcal{S}$.  Thus IHOL is complete with respect to models in sublocal toposes.
+\item  The ``subdirect-product representation'' given by Corollary \ref{cor:SDPtopos} is a logical completeness theorem with respect to interpretations $\EE_\mathbb{T}\rightarrow\mathcal{S}$ of $\mathbb{T}$ into sublocal toposes~$\mathcal{S}$.  It says that, for any theory $\mathbb{T}$ in IHOL, a sentence $\phi$ is provable, $\mathbb{T}\vdash \phi$,  iff it holds in every interpretation of $\mathbb{T}$ in a sublocal topos~$\mathcal{S}$.  Thus IHOL is complete with respect to models in sublocal toposes.
 
 \item The sheaf representation is a Kripke-style completeness theorem for IHOL, with $\widetilde\EE$ as a ``sheaf of possible worlds'' (see \cite{L1}).
 \end{itemize}
@@ -667,7 +667,7 @@ The foregoing sheaf representations for toposes suggest an analogous treatment f
 
 This is more than just an analogy: it is a generalization of the classical Stone duality for Boolean algebras (= Boolean rings). From a logical point of view, the classical duality theory for Boolean algebras is the propositional case of the first-order one that we are proposing for pretoposes.  (There is also a generalization from classical to intuitionistic logic, which is less of a stretch.)  Thus let us briefly review the ``propositional case'' of classical Stone duality for Boolean algebras, before proceeding to the ``first-order'' case of pretoposes.  
 
-Recall (e.g.\ from \cite{J}, Ch.~5) that for a Boolean algebra $B$ we have the Stone space $\mathsf{Stone}(B)$, which is defined exactly was the subterminal lattice $\mathsf{Sub}_{\EE}(1)$ of a topos $\EE$, i.e. $\mathsf{Stone}(B)=\mathsf{Spec}(B)$ is the prime spectrum of $B$ (prime ideals in a Boolean algebra are always maximal, thus are exactly the complements of the ultrafilters, which are the usual points of $\mathsf{Stone}(B)$).  We can represent the \emph{points} $p\in \mathsf{Spec}(B)$ as Boolean homomorphisms,
+Recall (e.g.\ from \cite{J}, Ch.~5) that for a Boolean algebra $B$ we have the Stone space $\mathsf{Stone}(B)$, which is defined exactly as was the subterminal lattice $\mathsf{Sub}_{\EE}(1)$ of a topos $\EE$, i.e. $\mathsf{Stone}(B)=\mathsf{Spec}(B)$ is the prime spectrum of $B$ (prime ideals in a Boolean algebra are always maximal, thus are exactly the complements of the ultrafilters, which are the usual points of $\mathsf{Stone}(B)$).  We can represent the \emph{points} $p\in \mathsf{Spec}(B)$ as Boolean homomorphisms,
 \[
 p : B\to \mathbf{2}\,.
 \]
