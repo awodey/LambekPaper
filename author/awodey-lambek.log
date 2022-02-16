@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  24 JAN 2020 14:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  24 JAN 2020 16:01
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -673,8 +673,7 @@ Type  H <return>  for immediate help.
                                                   
 l.113 \pgfutil@colorlet{pgftransparent}{black}
                                               
-? q
-OK, entering \batchmode...
+? 
 
 ! LaTeX Error: Missing \begin{document}.
 
@@ -684,9 +683,8 @@ Type  H <return>  for immediate help.
                                                   
 l.113 \pgfutil@colorlet{pgftransparent}{black}
                                               
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+? q
+OK, entering \batchmode...
 )
 (/usr/local/texlive/2019/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
 code.tex
@@ -1140,7 +1138,7 @@ xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/201
 9/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on awodey-lambek.pdf (21 pages, 324085 bytes).
+Output written on awodey-lambek.pdf (21 pages, 324807 bytes).
 PDF statistics:
  184 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams

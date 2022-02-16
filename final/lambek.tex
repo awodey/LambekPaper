@@ -3,10 +3,11 @@
 % Steve Awodey
 % April 2019
 % -- updated January 2020
+% -- plain version, unsubmitted
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\documentclass[12pt]{article}
+\documentclass[12pt]{article}
 
-\documentclass[graybox]{svmult}
+%\documentclass[graybox]{svmult}
 \usepackage{makeidx}         % allows index generation
 \usepackage{graphicx} 
 \makeindex   
@@ -14,7 +15,7 @@
 %
 % My Packages
 %
-\usepackage{amsmath}
+\usepackage{amsmath,amsthm}
 \usepackage{amssymb,latexsym}
 \usepackage{bussproofs}
 \usepackage[all]{xy}
@@ -87,23 +88,23 @@
 \newcommand{\UU}{\ensuremath{\widetilde{\mathcal{U}}}}
 
 % theorem styles
-%\newtheorem{theorem}{Theorem}
-%\newtheorem*{theorem*}{Theorem}
-%\newtheorem{proposition}[theorem]{Proposition} 
-%\newtheorem*{proposition*}{Proposition} 
-%\newtheorem{lemma}[theorem]{Lemma}
-%\newtheorem*{lemma*}{Lemma}
-%\newtheorem{corollary}[theorem]{Corollary} 
-%\newtheorem*{corollary*}{Corollary} 
-%
-%\theoremstyle{remark}
-%\newtheorem{remark}[theorem]{Remark} 
-%\newtheorem*{remarks*}{Remarks}
-%\newtheorem{example}[theorem]{Example}
-%
-%\theoremstyle{definition}
-%\newtheorem{definition}[theorem]{Definition}
-%\newtheorem*{definition*}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem*{proposition*}{Proposition} 
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{corollary}[theorem]{Corollary} 
+\newtheorem*{corollary*}{Corollary} 
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remarks*}{Remarks}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
 
 \newcommand{\myemph}[1]{\emph{#1}}
  
@@ -141,64 +142,26 @@
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title*{
-Sheaf Representations and Duality in~Logic\thanks{
-The author acknowledges the support of the Centre for Advanced Study (CAS) in Oslo, Norway, which funded and hosted the research project ``Homotopy Type Theory and Univalent Foundations'' during the 2018/19 academic year, as well as the support of the Air Force Office of Scientific Research through MURI grant FA9550-15-1-0053.}
+\title{
+Sheaf Representations and Duality in~Logic
 }
 \author{
-Steve Awodey
-}
-\institute{Steve Awodey \at Carnegie Mellon University, Pittsburgh, PA, USA,
- \email{awodey@cmu.edu}
+Steve Awodey\thanks{
+The author is grateful for the support of the Centre for Advanced Study (CAS) in Oslo, Norway, which funded and hosted the research project ``Homotopy Type Theory and Univalent Foundations'' during the 2018/19 academic year, as well as that of the Air Force Office of Scientific Research through MURI grant FA9550-15-1-0053.}\\
+Carnegie Mellon University
 }
 
-%\date{
-%\today}
+\date{\today}
 
 \maketitle
 
-\abstract{
+\centerline{\emph{In memory of Joachim Lambek}}
+\bigskip
+
+\begin{abstract}
 The fundamental duality theories relating algebra and geometry that were discovered in the mid-20th century can also be applied to logic via its algebraization under categorical logic.  They thereby result in known and new completeness theorems.  This idea can be taken even further via what is sometimes called ``categorification'' to establish a new connection between logic and geometry, a glimpse of which can also be had in topos theory.  
-}
+\end{abstract}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Outline}
-%
-%\begin{enumerate}
-%
-%\item Gelfand Duality
-%
-%\item Grothendieck duality for rings
-%
-%\item Lambek-Moerdijk sheaf representation for toposes
-%
-%\item Local sheaf representation for toposes
-%
-%\item Stone duality for Boolean algebras
-%
-%\item Stone duality for Boolean pretoposes
-%
-%\item Sheaf representation for pretoposes
-%
-%\item Logical schemes
-%
-%\end{enumerate}
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subfile{lambek_intro.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subfile{lambek_ch1.tex}
-%
-%\centerline{\emph{In memory of Joachim Lambek}}
-%\bigskip 
-%\bigskip
-%
 \section*{Preface}
 
 Shortly after finishing my PhD thesis, I received a friendly letter from Professor Lambek in which he expressed interest in a result of mine that extended his work with Moerdijk \cite{LM}. He later cited my result in some papers on the philosophy of mathematics (including \cite{L1,L2}), in which he developed a congenial position that attempted to reconcile the various competing ones in foundations on the basis of results concerning the free topos, the sheaf representations considered here, and related considerations from categorical logic.    
@@ -218,11 +181,11 @@ Perhaps the ur-example of the sort of duality theory that we have in mind is the
  \mathcal{C} : \mathsf{Top}^\mathsf{op} \to \mathsf{CRng}.
  \]
 %
-The functor $ \mathcal{C}$ can be shown to be full and faithful if we restrict to compact Hausdorff spaces $X$ and (necessarily bounded) continuous functions  $\mathcal{C}^*(X)$,
+The functor $ \mathcal{C}$ can be shown  to be full and faithful if we restrict to compact Hausdorff spaces $X$ and (necessarily bounded) continuous functions  $\mathcal{C}^*(X)$,
  \[
  \mathcal{C}^* : \mathsf{KHaus}^\mathsf{op} \hookrightarrow \mathsf{CRng}.
  \]
-It then requires some further work to determine exactly \emph{which} commutative rings are of the form $\mathcal{C}^*(X)$ for some space $X$.   These are called (commutative) \emph{$C^*$-algebras}, and they can be characterized as commutative rings $A$ satisfying the following further conditions (\cite{J}, \S4.4):
+It then requires some further work to determine exactly \emph{which} commutative rings are of the form $\mathcal{C}^*(X)$ for some space $X$.   These are called (commutative) \emph{$C^*$-algebras}, and they can be characterized as commutative rings $A$ satisfying the following conditions (\cite{J}, \S4.4):
 \begin{enumerate}
 \item the additive group of $A$ is divisible and torsion free,
 \item $A$ has a partial order compatible with the ring structure and such that $a^2 \geq 0$ for all $a\in A$,
@@ -230,7 +193,7 @@ It then requires some further work to determine exactly \emph{which} commutative
 \item if $1_A\geq n\cdot a$ for all positive integers $n$, then $a\leq 0$,
 \item $A$ is complete in the norm $$||a|| = \inf\{ q\in \mathbb{Q}^+\ |\ q\cdot 1_A \geq a\text{ and } q\cdot 1_A \geq -a\}\,.$$
 \end{enumerate}
-There are many equivalent specifications (most using complex numbers in place of reals).  Henceforth all rings are assumed to be commutative with unit.
+There are many equivalent specifications (most using complex numbers in place of reals).   Henceforth all rings are assumed to be commutative with unit.
 
  \begin{theorem}[Gelfand duality]
  The category $\mathsf{KHaus}$ of compact Hausdorff spaces is dual to the category $\mathsf{C^*Alg}$ of $C^*$-algebras and their homomorphisms, via the functor $\mathcal{C}^*$:
